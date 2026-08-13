@@ -1,0 +1,49 @@
+{
+  "_comment": "Pool 1 — click-to-WhatsApp advertisers harvested from Meta Ad Library (public, no login). Each entry is an advertiser whose ACTIVE ad carries a WhatsApp/Send-message CTA, meaning they are paying Meta for leads that land in a WhatsApp inbox. Harvested 2026-08-11 via wrrkhunt/sources/meta_ads_extract.js run in Playwright MCP.",
+  "_queries_used": [
+    "IN | \"whatsapp\" interior design",
+    "IN | \"whatsapp\" study abroad consultant",
+    "AE | \"whatsapp\" interior fit out"
+  ],
+  "advertisers": [
+    {"name": "Montdor Interior Private Limited", "market": "IN", "vertical": "interior design", "domain": "montdorinterior.com", "fb": "https://www.facebook.com/MONTDORPL/", "ad_started": "13 Jul 2026"},
+    {"name": "Montdor Interior Goregaon", "market": "IN", "vertical": "interior design", "domain": "montdorinteriors.com", "fb": "https://www.facebook.com/MONTDORPLGOREGAON/", "ad_started": "6 May 2026"},
+    {"name": "DLIFE Home Interiors", "market": "IN", "vertical": "interior design", "domain": "dlifeinteriors.com", "fb": "https://www.facebook.com/dlifehome/", "ad_started": "13 May 2026"},
+    {"name": "Dasos Cabinets", "market": "IN", "vertical": "interior design", "domain": "", "fb": "https://www.facebook.com/dasoscabinets/", "ad_started": "23 Apr 2026"},
+    {"name": "Daftar Decor", "market": "IN", "vertical": "interior design", "domain": "", "fb": "https://www.facebook.com/daftardecor/", "ad_started": "23 Jan 2026"},
+    {"name": "Dream House Makerz", "market": "IN", "vertical": "interior design", "domain": "", "fb": "https://www.facebook.com/DreamHouseMakerz/", "ad_started": "11 Dec 2024"},
+    {"name": "Torana Constructions", "market": "IN", "vertical": "construction", "domain": "", "fb": "https://www.facebook.com/toranaconstructions/", "ad_started": "7 Mar 2026"},
+    {"name": "ACADD CENTRE", "market": "IN", "vertical": "training", "domain": "acaddcentre.com", "fb": "https://www.facebook.com/AcaddCentre.in/", "ad_started": "15 Jun 2026"},
+    {"name": "KUN Skoda", "market": "IN", "vertical": "auto dealer", "domain": "", "fb": "https://www.facebook.com/kunskoda/", "ad_started": "10 May 2026"},
+
+    {"name": "POEC - Prolific Overseas Education Consultant", "market": "IN", "vertical": "study abroad", "domain": "prolificoverseaseducation.com", "fb": "https://www.facebook.com/ProlificOverseas0906/", "ad_started": "2 Aug 2026"},
+    {"name": "Bemaster Educational Consultant", "market": "IN", "vertical": "study abroad", "domain": "bemastereducation.com", "fb": "https://www.facebook.com/bemastereducation/", "ad_started": "17 Jul 2026"},
+    {"name": "Invi Edutech (MBBS in Vietnam)", "market": "IN", "vertical": "study abroad", "domain": "inviedutech.com", "fb": "https://www.facebook.com/61579465394819/", "ad_started": "16 Jul 2026"},
+    {"name": "Eduland Immigration Pvt Ltd", "market": "IN", "vertical": "immigration", "domain": "", "fb": "https://www.facebook.com/edulandimmigrationpvtltd/", "ad_started": "30 Jul 2026"},
+    {"name": "Sky Bridge Immigration & Education Consultants", "market": "IN", "vertical": "immigration", "domain": "", "fb": "https://www.facebook.com/skybridgeimmigrationandeducationconsultant/", "ad_started": "18 Jul 2026"},
+    {"name": "Pratham International Study Abroad", "market": "IN", "vertical": "study abroad", "domain": "", "fb": "https://www.facebook.com/PrathamInternationalindia/", "ad_started": "29 Jul 2026"},
+    {"name": "NextWay Global", "market": "IN", "vertical": "study abroad", "domain": "", "fb": "https://www.facebook.com/nextwayglobal.in/", "ad_started": "3 Jul 2026"},
+    {"name": "Edugo Abroad", "market": "IN", "vertical": "study abroad", "domain": "", "fb": "https://www.facebook.com/edugoabroad/", "ad_started": "25 May 2026"},
+    {"name": "Educator Study Abroad", "market": "IN", "vertical": "study abroad", "domain": "", "fb": "https://www.facebook.com/educator.sa/", "ad_started": "9 Jul 2026"},
+    {"name": "The IELTS Bridge", "market": "IN", "vertical": "test prep", "domain": "", "fb": "https://www.facebook.com/theieltsbridge/", "ad_started": "19 May 2026"},
+    {"name": "Global Edu Overseas & MBBS Expert", "market": "IN", "vertical": "study abroad", "domain": "mbbsexpert.in", "fb": "https://www.facebook.com/www.mbbsexpert.in/", "ad_started": "25 Jul 2026"},
+
+    {"name": "Muse Interior Design Dubai", "market": "AE", "vertical": "interior design", "domain": "musedesign.ae", "fb": "https://www.facebook.com/musedesign.ae/", "ad_started": "28 May 2026"},
+    {"name": "KHA Interior Decorations", "market": "AE", "vertical": "interior design", "domain": "khainterior.ae", "fb": "https://www.facebook.com/61576953874008/", "ad_started": "16 Jul 2026"},
+    {"name": "Excellent Home Decor", "market": "AE", "vertical": "interior design", "domain": "excellenthomedecor.com", "fb": "https://www.facebook.com/EHDecor/", "ad_started": "28 Apr 2026"},
+    {"name": "Tazdeed Design", "market": "AE", "vertical": "interior design", "domain": "dubaidesignuae.com", "fb": "https://www.facebook.com/dubaidesign07/", "ad_started": "17 Feb 2026"},
+    {"name": "Apex Homes", "market": "AE", "vertical": "interior design", "domain": "apexhomes.ae", "fb": "https://www.facebook.com/apexhomes.ae/", "ad_started": "6 May 2026"},
+    {"name": "Luxury Antonovich Design", "market": "AE", "vertical": "interior design", "domain": "", "fb": "https://www.facebook.com/luxury.antonovich.design/", "ad_started": "23 Jul 2026"},
+    {"name": "Project Society Interior Design & Fitouts", "market": "AE", "vertical": "fitout", "domain": "", "fb": "https://www.facebook.com/100054522067097/", "ad_started": "3 Feb 2026"},
+    {"name": "Whitebricks Interiors", "market": "AE", "vertical": "fitout", "domain": "", "fb": "https://www.facebook.com/100087663684615/", "ad_started": "23 Jul 2026"},
+    {"name": "Hashtag Interiors UAE", "market": "AE", "vertical": "interior design", "domain": "", "fb": "https://www.facebook.com/hashtaginteriorsuae/", "ad_started": "21 Jul 2026"},
+    {"name": "House Elvn", "market": "AE", "vertical": "interior design", "domain": "", "fb": "https://www.facebook.com/house.elvn/", "ad_started": "9 Jul 2026"},
+    {"name": "Smart Loft AE", "market": "AE", "vertical": "fitout", "domain": "", "fb": "https://www.facebook.com/61577552115396/", "ad_started": "15 Jul 2026"},
+    {"name": "Round Core Technical Services LLC", "market": "AE", "vertical": "fitout", "domain": "", "fb": "https://www.facebook.com/100057601341787/", "ad_started": "18 Feb 2026"},
+    {"name": "High Virtue Technical and Cleaning Services", "market": "AE", "vertical": "facilities", "domain": "", "fb": "https://www.facebook.com/61560365999589/", "ad_started": "6 Apr 2026"},
+    {"name": "Agsons", "market": "AE", "vertical": "fitout", "domain": "", "fb": "https://www.facebook.com/agsonsme/", "ad_started": "18 Jun 2026"},
+    {"name": "DH House", "market": "AE", "vertical": "interior design", "domain": "", "fb": "https://www.facebook.com/61589843696048/", "ad_started": "28 Jul 2026"},
+    {"name": "YACO Automotive", "market": "AE", "vertical": "auto", "domain": "", "fb": "https://www.facebook.com/yacoautomotive/", "ad_started": "25 Jun 2026"},
+    {"name": "Empires On Wheels", "market": "AE", "vertical": "auto", "domain": "", "fb": "https://www.facebook.com/Empiresonwheels/", "ad_started": "14 May 2026"}
+  ]
+}

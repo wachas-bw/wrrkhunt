@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>wrrk.ai Prospecting Playbook</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm 18mm 15mm; }
+
+  :root {
+    --ink:      #14171c;
+    --ink-soft: #4b5259;
+    --line:     #d8dde3;
+    --line-lt:  #eaeef2;
+    --accent:   #0f5c4d;
+    --accent-lt:#e7f2ef;
+    --warn:     #8a4b1a;
+    --warn-lt:  #fdf1e6;
+    --bad:      #8c2f2f;
+    --bad-lt:   #fbeded;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0; color: var(--ink); background: #fff;
+    font: 10.2pt/1.52 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  h1, h2, h3 { line-height: 1.2; margin: 0; font-weight: 700; }
+  h1 { font-size: 27pt; letter-spacing: -0.9px; }
+  h2 {
+    font-size: 14pt; letter-spacing: -0.35px; margin: 22pt 0 8pt;
+    padding-bottom: 5pt; border-bottom: 2px solid var(--ink);
+    break-after: avoid;
+  }
+  h3 { font-size: 10.8pt; margin: 14pt 0 4pt; break-after: avoid; }
+  p  { margin: 0 0 7pt; orphans: 3; widows: 3; }
+  li { orphans: 2; widows: 2; }
+  ul, ol { margin: 0 0 8pt; padding-left: 15pt; }
+  li { margin-bottom: 3pt; }
+  strong { font-weight: 700; }
+  code {
+    font: 9pt/1.4 "SF Mono", Menlo, Consolas, monospace;
+    background: #f1f4f7; padding: 1px 4px; border-radius: 3px;
+  }
+
+  /* cover */
+  .cover { border-bottom: 3px solid var(--ink); padding-bottom: 14pt; margin-bottom: 4pt; }
+  .kicker {
+    font-size: 8pt; font-weight: 700; letter-spacing: 1.6px;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 7pt;
+  }
+  .lede { font-size: 11.4pt; color: var(--ink-soft); margin-top: 9pt; max-width: 52em; }
+  .meta {
+    font-size: 8.4pt; color: var(--ink-soft); margin-top: 11pt;
+    display: flex; gap: 18pt; flex-wrap: wrap;
+  }
+
+  /* the thesis box */
+  .thesis {
+    background: var(--accent-lt); border-left: 4px solid var(--accent);
+    padding: 11pt 13pt; margin: 14pt 0;
+  }
+  .thesis .q { font-size: 12pt; font-weight: 700; line-height: 1.35; }
+
+  /* callouts */
+  h2 + p, h3 + p { break-before: avoid; }
+  .box { padding: 9pt 12pt; margin: 10pt 0; border-left: 3px solid var(--line); background: #f7f9fb; }
+  .box.warn { border-left-color: var(--warn); background: var(--warn-lt); }
+  .box.bad  { border-left-color: var(--bad);  background: var(--bad-lt); }
+  .box.good { border-left-color: var(--accent); background: var(--accent-lt); }
+  .box-t { font-weight: 700; font-size: 9.4pt; text-transform: uppercase; letter-spacing: 0.7px; margin-bottom: 4pt; }
+  .box.warn .box-t { color: var(--warn); }
+  .box.bad  .box-t { color: var(--bad); }
+  .box.good .box-t { color: var(--accent); }
+
+  /* tables */
+  table { width: 100%; border-collapse: collapse; margin: 8pt 0 10pt; font-size: 9.2pt; }
+  th {
+    text-align: left; font-size: 8pt; text-transform: uppercase; letter-spacing: 0.7px;
+    color: var(--ink-soft); border-bottom: 1.5px solid var(--ink); padding: 4pt 7pt 4pt 0;
+  }
+  td { padding: 5pt 7pt 5pt 0; border-bottom: 1px solid var(--line-lt); vertical-align: top; }
+  td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tr.hi td { background: var(--accent-lt); font-weight: 600; }
+
+  /* method header */
+  .method { break-inside: avoid; margin-bottom: 4pt; }
+  .mhead { display: flex; align-items: baseline; gap: 9pt; margin: 18pt 0 3pt; }
+  .mnum {
+    font-size: 8pt; font-weight: 700; color: #fff; background: var(--ink);
+    width: 17pt; height: 17pt; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center; flex: none;
+  }
+  .mnum.fail { background: var(--bad); }
+  .mtitle { font-size: 13pt; font-weight: 700; letter-spacing: -0.3px; }
+  .mtag {
+    font-size: 7.6pt; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase;
+    padding: 2pt 6pt; border-radius: 9pt; background: var(--accent-lt); color: var(--accent);
+  }
+  .mtag.fail { background: var(--bad-lt); color: var(--bad); }
+  .mtag.mid  { background: var(--warn-lt); color: var(--warn); }
+  .mmeta { font-size: 8.6pt; color: var(--ink-soft); margin: 0 0 6pt 26pt; }
+  .mbody { margin-left: 26pt; }
+
+  .recipe {
+    background: #14171c; color: #e9edf1; padding: 10pt 12pt; border-radius: 4px;
+    font: 8.7pt/1.6 "SF Mono", Menlo, Consolas, monospace; margin: 7pt 0;
+    white-space: pre-wrap; word-break: break-word;
+  }
+  .recipe .c { color: #8fb8ad; }
+
+  .rule { display: flex; gap: 8pt; margin-bottom: 6pt; break-inside: avoid; }
+  .rule .n {
+    font-weight: 700; color: var(--accent); flex: none; width: 13pt;
+    font-variant-numeric: tabular-nums;
+  }
+
+  footer {
+    margin-top: 20pt; padding-top: 8pt; border-top: 1px solid var(--line);
+    font-size: 8pt; color: var(--ink-soft);
+  }
+  .pb { break-before: page; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="kicker">wrrk.ai &nbsp;/&nbsp; Go to market</div>
+  <h1>The Prospecting Playbook</h1>
+  <p class="lede">How we find companies that demonstrably have the problem wrrk.ai solves, and
+  prove it to them with evidence they can verify themselves in ten seconds.</p>
+  <div class="meta">
+    <span><strong>Version</strong> 1.0</span>
+    <span><strong>Date</strong> 13 August 2026</span>
+    <span><strong>Basis</strong> 32 prospects sourced, 4 methods measured</span>
+  </div>
+</div>
+
+<div class="thesis">
+  <div class="q">Every competitor emails "we are an AI CRM." Nobody replies, because that
+  claim is about the seller. We only send claims about the buyer.</div>
+</div>
+
+<h2>1. What we are actually selling</h2>
+
+<p>Not a feature list. One sentence, and it is the whole thesis:</p>
+
+<p style="font-size:11.4pt;font-weight:600;margin:9pt 0 10pt;padding-left:11pt;border-left:3px solid var(--accent);">
+A small team whose customers talk to them on WhatsApp and Instagram, where those
+conversations are invisible to the business.</p>
+
+<p>The provable version, and the one that gets replies: <em>your revenue conversations
+live on someone's personal phone, and you are buying ads to send more of them there.</em></p>
+
+<h3>The scoring inversion (read this twice)</h3>
+
+<p>The instinct is to target companies paying a lot for tooling. That is backwards. The
+best prospect has <strong>many customer front doors and nothing behind them</strong>:
+WhatsApp, Instagram, email, a contact form, and no CRM or shared inbox. The pain is
+unowned rather than merely expensive, and there is nothing to rip out.</p>
+
+<div class="box good">
+  <div class="box-t">Proof the scoring is right</div>
+  Decorpot scored 100 out of 100 on our own scorer, and Decorpot is <strong>already a
+  wrrk customer</strong>. The scorer independently rediscovered the profile we already
+  sell to. That is also why we keep a suppression list.
+</div>
+
+<h2>2. The four sourcing methods, ranked by measured yield</h2>
+
+<p>Each was actually run and counted. The numbers below are measurements, not estimates.</p>
+
+<table>
+  <thead><tr><th>Method</th><th>Best for</th><th class="num">Cost</th><th class="num">Yield</th><th>Verdict</th></tr></thead>
+  <tbody>
+    <tr class="hi"><td><strong>Meta Ad Library</strong></td><td>WhatsApp-first SMBs</td><td class="num">Free</td><td class="num">17 of 27</td><td>Best method we have</td></tr>
+    <tr><td>Published directories</td><td>Agencies, 30 to 70 staff</td><td class="num">Free</td><td class="num">15 of 19</td><td>Strong, needs websites</td></tr>
+    <tr><td>Funding reports</td><td>Early-stage startups</td><td class="num">Free</td><td class="num">5 of 7</td><td>Best founder names</td></tr>
+    <tr><td>Apify LinkedIn posts</td><td>Founder intent</td><td class="num">$0.42</td><td class="num">0 of 180</td><td>Do not repeat</td></tr>
+  </tbody>
+</table>
+
+<div class="method">
+  <div class="mhead"><span class="mnum">1</span><span class="mtitle">Meta Ad Library</span><span class="mtag">Highest yield</span></div>
+  <div class="mmeta">Public, no login, no API key, no cost. Our single best source.</div>
+  <div class="mbody">
+
+  <p>Businesses running <strong>click-to-WhatsApp ads are paying Meta for leads that land
+  in an inbox nobody owns.</strong> That is not an inference we are making about them, it
+  is a receipt. It is the strongest buying signal in the entire playbook.</p>
+
+  <h3>The one trick that makes this work</h3>
+  <p>Searching a vertical on its own returns the wrong companies entirely: large brands
+  driving traffic to websites, sorted by ad spend. <strong>Pair the literal token
+  "whatsapp" with the vertical.</strong> That single change moved the hit rate from 1 in
+  84 to 17 in 27.</p>
+
+  <div class="recipe"><span class="c"># Wrong. Sorts by impressions, returns big D2C brands with web destinations.</span>
+country=IN  q=skincare                      <span class="c">-&gt;  1 / 84 WhatsApp CTAs</span>
+
+<span class="c"># Right. The quoted token makes the result set click-to-WhatsApp dense.</span>
+country=IN  q="whatsapp" interior design    <span class="c">-&gt; 17 / 27</span>
+country=IN  q="whatsapp" study abroad       <span class="c">-&gt; 15 / 23</span>
+country=AE  q="whatsapp" interior fit out   <span class="c">-&gt; 20 / 29</span></div>
+
+  <h3>What to extract per advertiser</h3>
+  <ul>
+    <li>Advertiser page name and Facebook page URL</li>
+    <li><strong>Destination URL</strong>, decoded out of Meta's <code>l.facebook.com</code>
+        link shim. This is how you get their real website to audit.</li>
+    <li>Ad start date, which tells you how long they have been paying</li>
+    <li>Whether the CTA is WhatsApp or Send Message</li>
+  </ul>
+
+  <p>De-duplicate to <strong>one row per advertiser, not per ad.</strong> A single
+  business often runs the same creative many times and will otherwise dominate the batch.</p>
+
+  <div class="box warn">
+    <div class="box-t">Two things that will trip you up</div>
+    <strong>It returns 403 after sustained use.</strong> Switch to a different browser
+    profile and it clears immediately.<br>
+    <strong>It is the wrong tool for non-WhatsApp pools.</strong> UAE recruitment agencies
+    returned 1 domain in 13, because they advertise straight into WhatsApp with no website
+    at all. No website means nothing to audit.
+  </div>
+  </div>
+</div>
+
+<div class="method pb">
+  <div class="mhead"><span class="mnum">2</span><span class="mtitle">Published directories</span><span class="mtag">Strong</span></div>
+  <div class="mmeta">Free. The right tool when you need companies that definitely have websites.</div>
+  <div class="mbody">
+  <p>Ranked-list articles ("top 20 agencies in Pune") are curated, current, and hand you
+  a company name plus a domain plus a staff count. We pulled 19 Pune agencies this way and
+  15 became draftable prospects.</p>
+
+  <h3>Why agencies are the highest-value pool</h3>
+  <p>An agency needs the product <strong>twice</strong>: internally for 30 to 70 staff
+  (attendance, leave, payroll, tasks) and commercially for client work (proposals,
+  contracts, invoices, one inbox per client). It is also the only pool that can
+  <strong>resell</strong>, which is exactly the segment GoHighLevel takes.</p>
+
+  <p><strong>Filter by size.</strong> We dropped every firm above roughly 100 staff. A
+  200-person agency already runs Darwinbox and HubSpot and is the wrong motion for a
+  $14.99 per seat product. The sweet spot is 30 to 70.</p>
+  </div>
+</div>
+
+<div class="method">
+  <div class="mhead"><span class="mnum">3</span><span class="mtitle">Funding reports</span><span class="mtag">Best names</span></div>
+  <div class="mmeta">Free. Weekly roundups from Entrackr, Inc42, YourStory.</div>
+  <div class="mbody">
+  <p>Early stage is the correct instinct, and here is precisely why: a company that just
+  raised has budget, is hiring, and has <strong>no incumbent stack to rip out</strong>, so
+  switching cost is zero. A 200-person company has already bought everything. A six-person
+  one has a WhatsApp group and a spreadsheet.</p>
+
+  <p>Funding coverage also names founders, which is what makes these leads messageable on
+  LinkedIn. It produced our two verified founder profiles.</p>
+
+  <div class="box good">
+    <div class="box-t">The best timing signal we have found</div>
+    One prospect raised $5.5M and <strong>launches on 1 September.</strong> Pre-launch
+    means the ops stack is being chosen right now and there is no history to migrate.
+    That window is roughly two weeks wide and it does not come back. Look for launch
+    dates, not just round sizes.
+  </div>
+
+  <p><strong>Filter hard on stage.</strong> Ignore Series B and above. Keep seed and small
+  Series A where the customer base is consumer or trade facing, because that is where
+  WhatsApp and Instagram are genuinely the channel.</p>
+  </div>
+</div>
+
+<div class="method">
+  <div class="mhead"><span class="mnum fail">4</span><span class="mtitle">Apify LinkedIn post search</span><span class="mtag fail">Failed</span></div>
+  <div class="mmeta">Cost $0.42. Returned 180 posts and zero usable leads.</div>
+  <div class="mbody">
+  <p>Documented so nobody repeats it. We searched LinkedIn posts for founders asking which
+  CRM or shared inbox to use. Rejection breakdown:</p>
+
+  <table>
+    <thead><tr><th>Reason rejected</th><th class="num">Posts</th></tr></thead>
+    <tbody>
+      <tr><td>No ops keyword and no early-stage tell</td><td class="num">67</td></tr>
+      <tr><td>Too long, all thought-leadership on inspection</td><td class="num">43</td></tr>
+      <tr><td>Promotional or self-marketing</td><td class="num">42</td></tr>
+      <tr><td>Content marketing dressed as a question</td><td class="num">12</td></tr>
+      <tr><td>Vendor or agency author</td><td class="num">10</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box bad">
+    <div class="box-t">Why it failed, and the lesson</div>
+    LinkedIn post search is dominated by engagement-optimised content. Founders asking
+    genuine questions get little reach and are rare: the measured base rate is about 1
+    percent, so 180 posts should produce one or two, and produced none.
+    <strong>That is a base-rate problem, not a tuning problem.</strong> Better queries
+    would not have fixed it, so we stopped rather than spend the rest of the budget.
+  </div>
+  </div>
+</div>
+
+<h2>3. The audit, which is the actual differentiator</h2>
+
+<p>Sourcing finds a company. The audit is what earns the reply. Every check is free and,
+except the response-time probe, scriptable.</p>
+
+<table>
+  <thead><tr><th style="width:4%"></th><th style="width:26%">Check</th><th style="width:34%">How</th><th>What it gives you</th></tr></thead>
+  <tbody>
+    <tr><td class="num">1</td><td><strong>Stack detection</strong></td><td>Fetch the homepage plus /contact and /about, regex for vendor script tags</td><td>Their exact tool list and real monthly spend</td></tr>
+    <tr><td class="num">2</td><td><strong>Ad Library</strong></td><td>Search their page name, filter by country</td><td>Active ad count, CTA type, spend duration</td></tr>
+    <tr><td class="num">3</td><td><strong>Response-time probe</strong></td><td>Manual, top 20 only. One genuine buying question to their WhatsApp, timestamped</td><td>The single most powerful line available</td></tr>
+    <tr><td class="num">4</td><td><strong>Hiring signal</strong></td><td>Careers page, LinkedIn Jobs, public ATS boards</td><td>"You are about to pay a salary to solve this"</td></tr>
+    <tr><td class="num">5</td><td><strong>Team size</strong></td><td>LinkedIn company page</td><td>Seat maths in their currency</td></tr>
+    <tr><td class="num">6</td><td><strong>Front-door count</strong></td><td>Aggregate of check 1</td><td>"Five ways in, no shared inbox"</td></tr>
+  </tbody>
+</table>
+
+<p>The output is <strong>one sentence of evidence</strong> you can paste into an email. Real
+examples from live prospects:</p>
+
+<ul>
+  <li>Five separate branch inboxes (info, chandni, gandhinagar, ghatkopar, goregaon), a
+      live WhatsApp number, and both Meta and Google ads running into all of it, with no
+      CRM anywhere.</li>
+  <li>Enquiries arriving at a Gmail address, alongside an Instagram account.</li>
+  <li>Paying for a WhatsApp-only tool, with email, Instagram DMs and deal history
+      somewhere else entirely.</li>
+</ul>
+
+<div class="box warn">
+  <div class="box-t">Rule on the money number</div>
+  Quote the prospect's <strong>detected</strong> stack, never our marketing "replaces
+  $400 a month" figure. That number sums list prices of 17 tools and a founder will call
+  it out. Also never quote our estimated dollar total, because it is seat count times list
+  price and therefore a guess. <strong>Name the tools, not the number.</strong>
+</div>
+
+<div class="box warn">
+  <div class="box-t">Rule on the response-time probe</div>
+  One message, a real question, never a follow-up nag, and <strong>always disclose it in
+  the email.</strong> If you would not be comfortable with them knowing you timed it, do
+  not do it. Cap it at the top 20 prospects and never automate it.
+</div>
+
+<h2>4. Copy rules, enforced by a linter not by taste</h2>
+
+<p>Each rule below is a failure someone already paid for. Our drafting tool refuses to
+emit anything that breaks them, which is the point: judgement does not scale, a check
+does.</p>
+
+<div class="rule"><span class="n">1</span><div><strong>No em dashes, en dashes, or middle dots.</strong> Reads as AI-generated and kills reply rate.</div></div>
+<div class="rule"><span class="n">2</span><div><strong>60 to 95 words of pitch.</strong> Measured on the body, excluding greeting and signature. Longer gets skimmed and deleted.</div></div>
+<div class="rule"><span class="n">3</span><div><strong>No links in email one.</strong> Links in a cold first touch hurt deliverability. The audit video goes in follow-up two.</div></div>
+<div class="rule"><span class="n">4</span><div><strong>One question mark.</strong> A binary ask beats a soft "let me know."</div></div>
+<div class="rule"><span class="n">5</span><div><strong>Never greet a prospect by a scraped name.</strong> Derive the greeting from the address you are actually sending to, and fall back to "Hi there" whenever it is not clearly a person.</div></div>
+<div class="rule"><span class="n">6</span><div><strong>Never write to careers@ or hr@.</strong> A vendor pitch to a recruiting inbox is ignored.</div></div>
+<div class="rule"><span class="n">7</span><div><strong>Never send to a domain with no MX record.</strong> It bounces, and bounces cost sender reputation.</div></div>
+
+<div class="box bad">
+  <div class="box-t">Real mistakes the linter caught before they went out</div>
+  <strong>"Hi Careers,"</strong> on a mail addressed to sales@, because the greeting and
+  the envelope came from different places.<br>
+  <strong>"Hi Acaddcntr,"</strong>, which is a company mailbox, not a person.<br>
+  <strong>"Hi Anilbhat,"</strong>, a first and last name run together.<br>
+  Drafts addressed to <strong>no-reply@</strong>, where a reply is impossible by construction.
+</div>
+
+<h2>5. Three claims we deleted, and why it matters</h2>
+
+<p>Credibility is the only asset in cold outreach and it is spent permanently. Both of
+these were written, then removed before sending.</p>
+
+<table>
+  <thead><tr><th style="width:44%">What was written</th><th>Why it was cut</th></tr></thead>
+  <tbody>
+    <tr><td>"Saw the same shape at three other interiors firms this month"</td><td>We could not back it. Replaced with "Decorpot runs on us", a public logo the prospect can verify.</td></tr>
+    <tr><td>"We run the interiors side for Decorpot"</td><td>Decorpot is a customer, but we do not know which modules they use. Claiming knowledge we lack collapses on the call.</td></tr>
+    <tr><td>"Proposal, contract, timesheet and invoice are <em>probably</em> four different tools"</td><td>"Probably" is a guess wearing a fact's clothes. Rewritten as a question, which is honest and easier to answer.</td></tr>
+  </tbody>
+</table>
+
+<div class="box bad">
+  <div class="box-t">Do not sell these. They are not production ready.</div>
+  <strong>AI meeting notetaker</strong> is disabled in production, yet it is feature two on
+  our own landing page. Highest vapour risk we have.<br>
+  <strong>Lead discovery across six platforms</strong> defaults to Reddit only.<br>
+  <strong>Ziwo voice</strong> is code-ready but blocked on credentials.<br>
+  <strong>Public REST API, Meta and Google Ads orchestration:</strong> do not exist.<br>
+  Sell WhatsApp, unified inbox, CRM, workflows, email campaigns, people and HR. Those
+  carry live customer traffic. An email that overpromises and then dies in the demo is
+  worse than no email.
+</div>
+
+<h2>6. Sending, which is the real bottleneck</h2>
+
+<p>An earlier campaign on this system automated sourcing and drafting perfectly and left
+sending as a vague intention. <strong>Twelve warm, fully drafted leads went cold unsent
+over four days.</strong> Finding people is never the constraint.</p>
+
+<div class="rule"><span class="n">1</span><div><strong>20 emails per day, hard cap</strong>, spread through the day. A 35-in-two-minutes burst measurably hurt deliverability once already.</div></div>
+<div class="rule"><span class="n">2</span><div><strong>Plain text, one to one.</strong> No HTML, no tracking pixel, no image signature.</div></div>
+<div class="rule"><span class="n">3</span><div><strong>Set up Google Postmaster Tools before the first send</strong>, and seed-test three drafts into Gmail, Outlook and Yahoo. Confirm the primary inbox, not Promotions.</div></div>
+<div class="rule"><span class="n">4</span><div><strong>Follow up 3, 7, 7</strong>, always in the same thread. Day three is the audit video and it is the highest-converting asset we have. It is also the one most likely to be skipped.</div></div>
+<div class="rule"><span class="n">5</span><div><strong>If drafted-but-unsent exceeds 10, stop sourcing entirely and send.</strong> More prospects is never the answer when the queue is already full.</div></div>
+
+<h2>7. Where to start on Monday</h2>
+
+<ol>
+  <li>Pick one vertical where your customers plausibly use WhatsApp.</li>
+  <li>Search the Ad Library for <code>"whatsapp" &lt;your vertical&gt;</code> in your country.
+      Expect roughly half to be genuine click-to-WhatsApp advertisers.</li>
+  <li>Pull the destination URLs. Those are your audit targets.</li>
+  <li>Run the stack check on each. Keep the ones with many front doors and nothing behind
+      them.</li>
+  <li>Write one sentence of evidence per prospect. If you cannot, you do not have a
+      prospect yet.</li>
+  <li>Send 20 a day, and put the day-three follow-up in your calendar before you send the
+      first one.</li>
+</ol>
+
+<div class="thesis">
+  <div class="q">If you cannot show it to them, do not claim it. Everything in the email
+  should be something the prospect can verify on their own website in ten seconds.</div>
+</div>
+
+<footer>
+  wrrk.ai Prospecting Playbook v1.0 &nbsp;/&nbsp; 13 August 2026 &nbsp;/&nbsp; Every number
+  in this document was measured, not estimated. Tooling and raw data live in
+  <code>wrrkhunt/</code>.
+</footer>
+
+</body>
+</html>

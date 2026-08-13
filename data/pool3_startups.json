@@ -1,0 +1,142 @@
+{
+  "_comment": "Pool 3 — recently funded early-stage startups, sourced 2026-08-13 from Entrackr and Inc42 weekly funding reports plus press verification. Deliberately NOT from the Apify LinkedIn harvest, which returned 0 usable leads from 180 posts (see _apify_result below).",
+  "_apify_result": "Ran harvestapi/linkedin-post-search on 14 founder-intent queries, 180 posts, cost ~$0.42, kept 0. Rejection breakdown: 67 no ops keyword or early-stage tell, 43 too long (all thought-leadership on inspection), 42 promo, 12 content-not-ask, 10 vendor author. LinkedIn post search is dominated by engagement-optimised content; clienthunt measured ~1% genuine-ask rate, so 180 posts should have yielded 1-2 and yielded none. Not a tuning problem. Do not re-run this mechanism without changing the source. $2.30 of the $5 free tier remains.",
+  "_why_this_pool": "Early stage is the user's own thesis and it is correct: a company that just raised has budget, is hiring, and has NO incumbent stack to rip out, so switching cost is zero. A 200-person company has Darwinbox and HubSpot already. A 6-person one has a WhatsApp group and a spreadsheet.",
+  "_selection": "Dropped River Mobility ($120M Series C), Sarvam ($74M Series B), BlissClub (Series B) and Leap India (pre-IPO) as far too large for a $14.99/seat motion. Kept seed and small Series A where the customer base is consumer or trade facing, because that is where WhatsApp and Instagram are the real channels.",
+  "advertisers": [
+    {
+      "name": "Fixxly",
+      "market": "IN",
+      "city": "Bengaluru",
+      "vertical": "quick commerce",
+      "domain": "fixxly.in",
+      "stage": "seed",
+      "raised": "$5.5M",
+      "investors": "Accel, Fireside Ventures, Lightspeed India",
+      "launch": "2026-09-01",
+      "founders": [
+        {
+          "name": "Shezan Bhojani",
+          "title": "Co-founder & CEO",
+          "linkedin": "https://in.linkedin.com/in/shezan-bhojani-640b5aa",
+          "verified": true,
+          "note": "previously co-founded DesignCafe (home interiors, merged with HomeLane 2024). Same vertical as Decorpot, which is a live wrrk logo."
+        },
+        {
+          "name": "Sachith Varma",
+          "title": "Co-founder",
+          "linkedin": "",
+          "verified": false,
+          "note": "ex-Zepto supply chain design, ex-Flipkart last-mile ops"
+        }
+      ],
+      "signal": "PRE-LAUNCH. Commercial launch 1 Sep 2026 in Bengaluru, so the ops stack is being chosen right now. Customers are contractors, electricians, plumbers, carpenters, painters and interior designers, every one of them a WhatsApp-first trade.",
+      "why_now": "best timing signal in the entire system",
+      "customers": "contractors, electricians, plumbers and interior designers"
+    },
+    {
+      "name": "House of Student",
+      "market": "IN/US",
+      "city": "San Francisco + India/UK/ME",
+      "vertical": "proptech",
+      "domain": "houseofstudent.com",
+      "stage": "seed",
+      "raised": "$2M",
+      "investors": "Saltwater Sutra, Nirmitsu Inspirational Ventures",
+      "founders": [
+        {
+          "name": "Vaibhav Verma",
+          "title": "Founder & CEO",
+          "linkedin": "https://www.linkedin.com/in/vaibhavunilodgers/",
+          "verified": true,
+          "note": "previously founded Unilodgers, bootstrapped to a $109M valuation"
+        }
+      ],
+      "signal": "Runs LiveChat and five front doors. Student housing enquiries across 25+ countries and three regional teams, which is a shared-inbox and handover problem before it is anything else."
+    },
+    {
+      "name": "Kaapi Machines",
+      "market": "IN",
+      "city": "",
+      "vertical": "B2B equipment",
+      "domain": "kaapimachines.com",
+      "stage": "early",
+      "raised": "undisclosed",
+      "founders": [
+        {
+          "name": "Anurag Das",
+          "title": "unconfirmed role",
+          "linkedin": "https://in.linkedin.com/in/anurag-das-ba14222a",
+          "verified": false,
+          "note": "CAUTION: find_contacts scraped 'Abhijeet Anand' and 'Anand Thakkar' off this site as founders. Both are WRONG. Abhijeet Anand founds abCoffee, a different company; the name came off a testimonial or partner mention. Confirm the role on LinkedIn before using any name."
+        }
+      ],
+      "signal": "fit 100. Five front doors, Meta and Google ads running, no CRM detected. Coffee equipment sold and serviced in the field, so service tickets and spares run on phone and WhatsApp."
+    },
+    {
+      "name": "SUIND",
+      "market": "IN",
+      "city": "",
+      "vertical": "agri drones",
+      "domain": "suind.com",
+      "stage": "seed",
+      "raised": "$2.1M",
+      "founders": [
+        {
+          "name": "Kunal Shrivastava",
+          "title": "Co-founder",
+          "linkedin": "",
+          "verified": false
+        },
+        {
+          "name": "Kevin Kleber",
+          "title": "Co-founder",
+          "linkedin": "",
+          "verified": false
+        }
+      ],
+      "signal": "Runs Notion and Mailchimp and nothing else. Classic early stack: docs tool plus a newsletter, no CRM, no shared inbox."
+    },
+    {
+      "name": "Solinas Integrity",
+      "market": "IN",
+      "city": "Chennai",
+      "vertical": "robotics",
+      "domain": "solinas.in",
+      "stage": "early",
+      "raised": "undisclosed",
+      "founders": [
+        {
+          "name": "Divanshu Kumar",
+          "title": "CEO",
+          "linkedin": "",
+          "verified": false,
+          "note": "IIT Madras spinout, name appears credible but unconfirmed"
+        }
+      ],
+      "signal": "Runs Calendly only. people@ published as the contact address."
+    },
+    {
+      "name": "Truth & Hair",
+      "market": "IN",
+      "city": "",
+      "vertical": "D2C haircare",
+      "domain": "truthandhair.com",
+      "stage": "seed",
+      "raised": "$566K",
+      "founders": [],
+      "signal": "D2C haircare on Judge.me reviews, no CRM, no shared inbox. Instagram-led category."
+    },
+    {
+      "name": "Benne",
+      "market": "IN",
+      "city": "",
+      "vertical": "D2C food",
+      "domain": "benne.in",
+      "stage": "early",
+      "raised": "undisclosed",
+      "founders": [],
+      "signal": "CAUTION: contact enrichment returned hello@shimowfoods.com, a different domain. Benne may be a brand of Shimow Foods. Confirm the legal entity before sending."
+    }
+  ]
+}

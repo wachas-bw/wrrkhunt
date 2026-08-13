@@ -1,0 +1,27 @@
+# Credentials. Never commit.
+# NOTE: git has no inline trailing comments in .gitignore. Keep comments on their
+# own line, or the pattern is read literally and matches nothing.
+.apify_token
+*.apify_token
+*.session
+*cookies*.json
+.env
+.env.*
+*.pem
+*.key
+
+# Generated emails addressed to real people. Rebuildable from outreach/batch*.json,
+# so committing them only duplicates third-party personal data.
+outreach/eml/
+
+# Raw scrape dumps: large, re-derivable, and full of unfiltered third-party content.
+data/*_raw.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS
+.DS_Store

@@ -1,0 +1,929 @@
+[
+ {
+  "domain": "mamaearth.in",
+  "emails": [
+   "care@mamaearth.in",
+   "no-reply@mamaearth.in",
+   "support@mamaearth.in"
+  ],
+  "role_emails": [
+   "care@mamaearth.in",
+   "support@mamaearth.in"
+  ],
+  "personal_emails": [
+   "no-reply@mamaearth.in"
+  ],
+  "people": [],
+  "pattern": "first@mamaearth.in",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "acaddcentre.com",
+  "emails": [
+   "acaddcntr@gmail.com",
+   "pulianjaneya@gmail.com"
+  ],
+  "role_emails": [],
+  "personal_emails": [],
+  "people": [],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": true
+ },
+ {
+  "domain": "sleepycat.in",
+  "emails": [
+   "info@sleepycat.in",
+   "info@stagheaddesigns.com",
+   "no.reply@sleepycat.in"
+  ],
+  "role_emails": [
+   "info@sleepycat.in"
+  ],
+  "personal_emails": [
+   "no.reply@sleepycat.in"
+  ],
+  "people": [
+   {
+    "name": "Ultima Memory Foam",
+    "title": "Coo"
+   },
+   {
+    "name": "Latex Best Seller",
+    "title": "Coo"
+   },
+   {
+    "name": "Luxury Medium Feel",
+    "title": "Founder"
+   },
+   {
+    "name": "Medium Feel Contour",
+    "title": "Coo"
+   },
+   {
+    "name": "Pillow Medium Feel",
+    "title": "Coo"
+   },
+   {
+    "name": "Summer Comforter New",
+    "title": "Coo"
+   }
+  ],
+  "pattern": "first.last@sleepycat.in",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "montdorinteriors.com",
+  "emails": [],
+  "role_emails": [],
+  "personal_emails": [],
+  "people": [],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "boat-lifestyle.com",
+  "emails": [
+   "abc@hotmail.com",
+   "info@imaginemarketingindia.com"
+  ],
+  "role_emails": [],
+  "personal_emails": [],
+  "people": [],
+  "pattern": "",
+  "mx": false,
+  "free_mail_business": true
+ },
+ {
+  "domain": "decorpot.com",
+  "emails": [],
+  "role_emails": [],
+  "personal_emails": [],
+  "people": [],
+  "pattern": "",
+  "mx": false,
+  "free_mail_business": false
+ },
+ {
+  "domain": "inviedutech.com",
+  "emails": [
+   "mahesh.invi@gmail.com",
+   "prajapathi.m@inviedutech.com",
+   "prajapathi.m@inviedutech.com.vn",
+   "thanh.nguyen@inviedutech.com.vn"
+  ],
+  "role_emails": [],
+  "personal_emails": [
+   "prajapathi.m@inviedutech.com"
+  ],
+  "people": [],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "dlifeinteriors.com",
+  "emails": [],
+  "role_emails": [],
+  "personal_emails": [],
+  "people": [],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "musedesign.ae",
+  "emails": [
+   "info@musedesign.ae"
+  ],
+  "role_emails": [
+   "info@musedesign.ae"
+  ],
+  "personal_emails": [],
+  "people": [],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "montdorinterior.com",
+  "emails": [
+   "chandni@montdorinterior.com",
+   "gandhinagar@montdorinterior.com",
+   "ghatkopar@montdorinterior.com",
+   "goregaon@montdorinterior.com",
+   "info@montdorinterior.com",
+   "rajkot@montdorinterior.com",
+   "thane@montdorinterior.com"
+  ],
+  "role_emails": [
+   "info@montdorinterior.com"
+  ],
+  "personal_emails": [
+   "chandni@montdorinterior.com",
+   "gandhinagar@montdorinterior.com",
+   "ghatkopar@montdorinterior.com",
+   "goregaon@montdorinterior.com",
+   "rajkot@montdorinterior.com",
+   "thane@montdorinterior.com"
+  ],
+  "people": [],
+  "pattern": "first@montdorinterior.com",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "bemastereducation.com",
+  "emails": [
+   "bemaster.in@gmail.com"
+  ],
+  "role_emails": [],
+  "personal_emails": [],
+  "people": [],
+  "pattern": "",
+  "mx": false,
+  "free_mail_business": true
+ },
+ {
+  "domain": "khainterior.ae",
+  "emails": [
+   "m.amin@khainterior.ae"
+  ],
+  "role_emails": [],
+  "personal_emails": [
+   "m.amin@khainterior.ae"
+  ],
+  "people": [],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "wati.io",
+  "emails": [],
+  "role_emails": [],
+  "personal_emails": [],
+  "people": [],
+  "pattern": "",
+  "mx": false,
+  "free_mail_business": false
+ },
+ {
+  "domain": "apexhomes.ae",
+  "emails": [
+   "info@apexhomes.ae"
+  ],
+  "role_emails": [
+   "info@apexhomes.ae"
+  ],
+  "personal_emails": [],
+  "people": [
+   {
+    "name": "Temmeque Reynolds",
+    "title": "Partner",
+    "verified": false
+   }
+  ],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "excellenthomedecor.com",
+  "emails": [],
+  "role_emails": [],
+  "personal_emails": [],
+  "people": [],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "mbbsexpert.in",
+  "emails": [],
+  "role_emails": [],
+  "personal_emails": [],
+  "people": [],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "dreamworth.in",
+  "emails": [
+   "info@dreamworth.in",
+   "sales@dreamworth.in"
+  ],
+  "role_emails": [
+   "info@dreamworth.in",
+   "sales@dreamworth.in"
+  ],
+  "personal_emails": [],
+  "people": [
+   {
+    "name": "proof marketing",
+    "title": "Partner",
+    "verified": false
+   },
+   {
+    "name": "Influencer Marketing",
+    "title": "Partner",
+    "verified": false
+   },
+   {
+    "name": "delivering data",
+    "title": "Partner",
+    "verified": false
+   }
+  ],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "brandloom.com",
+  "emails": [
+   "care@brandloom.com",
+   "john@acme.com"
+  ],
+  "role_emails": [
+   "care@brandloom.com"
+  ],
+  "personal_emails": [],
+  "people": [
+   {
+    "name": "good digital marketing",
+    "title": "Partner",
+    "verified": false
+   },
+   {
+    "name": "Lee Washington",
+    "title": "Director",
+    "verified": false
+   },
+   {
+    "name": "Digital Marketing SEO",
+    "title": "Cmo",
+    "verified": false
+   }
+  ],
+  "pattern": "first@brandloom.com",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "ikf.co.in",
+  "emails": [
+   "enquiry@ikf.co.in"
+  ],
+  "role_emails": [
+   "enquiry@ikf.co.in"
+  ],
+  "personal_emails": [],
+  "people": [],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "ad2brand.com",
+  "emails": [
+   "ad2brandmedia@gmail.com"
+  ],
+  "role_emails": [],
+  "personal_emails": [],
+  "people": [],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": true
+ },
+ {
+  "domain": "brightbraintech.com",
+  "emails": [
+   "hr@brightbraintech.com",
+   "sales@brightbraintech.com"
+  ],
+  "role_emails": [
+   "sales@brightbraintech.com"
+  ],
+  "personal_emails": [
+   "hr@brightbraintech.com"
+  ],
+  "people": [
+   {
+    "name": "Google Elevator",
+    "title": "Partner",
+    "verified": false
+   },
+   {
+    "name": "International Growth Agency",
+    "title": "Partner",
+    "verified": false
+   }
+  ],
+  "pattern": "first@brightbraintech.com",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "osumare.com",
+  "emails": [
+   "hello@osumare.in",
+   "hr@osumare.in",
+   "info@osumare.com"
+  ],
+  "role_emails": [
+   "info@osumare.com"
+  ],
+  "personal_emails": [],
+  "people": [
+   {
+    "name": "digital marketing",
+    "title": "Partner",
+    "verified": false
+   },
+   {
+    "name": "Sarah Evens.",
+    "title": "Ceo",
+    "verified": false
+   },
+   {
+    "name": "James Rob.",
+    "title": "Ceo",
+    "verified": false
+   },
+   {
+    "name": "Netkey Software Pvt.",
+    "title": "Ceo",
+    "verified": false
+   },
+   {
+    "name": "Dubai Kelomas Osumare",
+    "title": "Ceo",
+    "verified": false
+   }
+  ],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "skovian.com",
+  "emails": [
+   "careers@skovian.com",
+   "sales@skovian.com",
+   "support@skovian.com"
+  ],
+  "role_emails": [
+   "sales@skovian.com",
+   "support@skovian.com"
+  ],
+  "personal_emails": [
+   "careers@skovian.com"
+  ],
+  "people": [
+   {
+    "name": "Meet Nishat",
+    "title": "Ceo",
+    "verified": false
+   }
+  ],
+  "pattern": "first@skovian.com",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "echovme.in",
+  "emails": [
+   "bde@echovme.com",
+   "bde@echovme.in"
+  ],
+  "role_emails": [],
+  "personal_emails": [
+   "bde@echovme.in"
+  ],
+  "people": [
+   {
+    "name": "Story Sorav Jain",
+    "title": "Founder",
+    "verified": false
+   },
+   {
+    "name": "Swati Bhargava",
+    "title": "Co-Founder",
+    "verified": false
+   },
+   {
+    "name": "Xcode Life Sciences",
+    "title": "Founder",
+    "verified": false
+   }
+  ],
+  "pattern": "first@echovme.in",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "optimizedinfotech.com",
+  "emails": [
+   "info@optimizedinfotech.com",
+   "milind@optimizedinfotech.com"
+  ],
+  "role_emails": [
+   "info@optimizedinfotech.com"
+  ],
+  "personal_emails": [
+   "milind@optimizedinfotech.com"
+  ],
+  "people": [
+   {
+    "name": "Strategic Digital Marketing",
+    "title": "Partner",
+    "verified": false
+   }
+  ],
+  "pattern": "first@optimizedinfotech.com",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "xebecindia.com",
+  "emails": [
+   "anilbhat@xebecindia.com",
+   "hr@xebecindia.com"
+  ],
+  "role_emails": [],
+  "personal_emails": [
+   "anilbhat@xebecindia.com",
+   "hr@xebecindia.com"
+  ],
+  "people": [
+   {
+    "name": "Happenings Google Premium",
+    "title": "Partner",
+    "verified": false
+   }
+  ],
+  "pattern": "first@xebecindia.com",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "brandup.in",
+  "emails": [
+   "sales@brandup.in",
+   "shiv@brandup.in",
+   "support@artisticfella.com"
+  ],
+  "role_emails": [
+   "sales@brandup.in"
+  ],
+  "personal_emails": [
+   "shiv@brandup.in"
+  ],
+  "people": [
+   {
+    "name": "Shiv Singh",
+    "title": "Founder",
+    "verified": false
+   },
+   {
+    "name": "Linkedin Baji Darade",
+    "title": "Founder",
+    "verified": false
+   }
+  ],
+  "pattern": "first@brandup.in",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "brainminetech.com",
+  "emails": [],
+  "role_emails": [],
+  "personal_emails": [],
+  "people": [],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "tempestadvertising.com",
+  "emails": [
+   "business@tempestadvertising.com",
+   "careers@tempestadvertising.com"
+  ],
+  "role_emails": [],
+  "personal_emails": [
+   "business@tempestadvertising.com",
+   "careers@tempestadvertising.com"
+  ],
+  "people": [],
+  "pattern": "first@tempestadvertising.com",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "aarnasystems.com",
+  "emails": [
+   "info@aarnasystems.com"
+  ],
+  "role_emails": [
+   "info@aarnasystems.com"
+  ],
+  "personal_emails": [],
+  "people": [],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "socialchamps.com",
+  "emails": [],
+  "role_emails": [],
+  "personal_emails": [],
+  "people": [],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "yashus.in",
+  "emails": [
+   "info@yashus.in",
+   "people@yashus.in",
+   "sujay@yashus.in"
+  ],
+  "role_emails": [
+   "info@yashus.in"
+  ],
+  "personal_emails": [
+   "people@yashus.in",
+   "sujay@yashus.in"
+  ],
+  "people": [
+   {
+    "name": "ROI Elite",
+    "title": "Partner",
+    "verified": false
+   },
+   {
+    "name": "dedicated performance",
+    "title": "Partner",
+    "verified": false
+   },
+   {
+    "name": "Yashus holds elite",
+    "title": "Partner",
+    "verified": false
+   },
+   {
+    "name": "powered marketing",
+    "title": "Partner",
+    "verified": false
+   },
+   {
+    "name": "Sujay Khandge",
+    "title": "Founder",
+    "verified": false
+   }
+  ],
+  "pattern": "first@yashus.in",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "talkd.co",
+  "emails": [
+   "info@talkd.co",
+   "sales@talkd.co"
+  ],
+  "role_emails": [
+   "info@talkd.co",
+   "sales@talkd.co"
+  ],
+  "personal_emails": [],
+  "people": [
+   {
+    "name": "Product Development",
+    "title": "Partner",
+    "verified": false
+   },
+   {
+    "name": "Al Moreno",
+    "title": "Ceo",
+    "verified": false
+   },
+   {
+    "name": "dependable UX",
+    "title": "Partner",
+    "verified": false
+   },
+   {
+    "name": "preferred experience innovation",
+    "title": "Partner",
+    "verified": false
+   },
+   {
+    "name": "Pranali Vichare",
+    "title": "Founder",
+    "verified": false
+   },
+   {
+    "name": "CEO Shashi Sudhanshu",
+    "title": "Founder",
+    "verified": false
+   }
+  ],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "bleap.in",
+  "emails": [
+   "info@bleap.in",
+   "info@bleapdigital.com"
+  ],
+  "role_emails": [
+   "info@bleap.in"
+  ],
+  "personal_emails": [],
+  "people": [
+   {
+    "name": "Partha Sarathy Managing",
+    "title": "Director",
+    "verified": false
+   }
+  ],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "oliosolutions.com",
+  "emails": [],
+  "role_emails": [],
+  "personal_emails": [],
+  "people": [],
+  "pattern": "",
+  "mx": false,
+  "free_mail_business": false
+ },
+ {
+  "domain": "benne.in",
+  "emails": [
+   "hello@shimowfoods.com"
+  ],
+  "role_emails": [],
+  "personal_emails": [],
+  "people": [],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "fixxly.in",
+  "emails": [
+   "hello@fixxly.in"
+  ],
+  "role_emails": [
+   "hello@fixxly.in"
+  ],
+  "personal_emails": [],
+  "people": [
+   {
+    "name": "Sachith Varma Co",
+    "title": "Founder",
+    "verified": false
+   }
+  ],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "suind.com",
+  "emails": [
+   "info@suind.com"
+  ],
+  "role_emails": [
+   "info@suind.com"
+  ],
+  "personal_emails": [],
+  "people": [
+   {
+    "name": "Innovation Kunal Shrivastava",
+    "title": "Co-Founder",
+    "verified": false
+   },
+   {
+    "name": "Kevin Kleber Co",
+    "title": "Founder",
+    "verified": false
+   },
+   {
+    "name": "Video Kunal Shrivastava",
+    "title": "Co-Founder",
+    "verified": false
+   },
+   {
+    "name": "LinkedIn Kevin Kleber",
+    "title": "Co-Founder",
+    "verified": false
+   },
+   {
+    "name": "LinkedIn Raisin George",
+    "title": "Head Of Marketing",
+    "verified": false
+   },
+   {
+    "name": "Alexander Held Machine",
+    "title": "Founder",
+    "verified": false
+   }
+  ],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "vaaree.com",
+  "emails": [],
+  "role_emails": [],
+  "personal_emails": [],
+  "people": [],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "truthandhair.com",
+  "emails": [
+   "garima@nynm.in",
+   "info@stagheaddesigns.com",
+   "info@truthandhair.com"
+  ],
+  "role_emails": [
+   "info@truthandhair.com"
+  ],
+  "personal_emails": [],
+  "people": [],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "houseofstudent.com",
+  "emails": [
+   "hello@houseofstudent.com"
+  ],
+  "role_emails": [
+   "hello@houseofstudent.com"
+  ],
+  "personal_emails": [],
+  "people": [],
+  "pattern": "",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "solinas.in",
+  "emails": [
+   "people@solinas.in",
+   "sales@solinas.in"
+  ],
+  "role_emails": [
+   "sales@solinas.in"
+  ],
+  "personal_emails": [
+   "people@solinas.in"
+  ],
+  "people": [
+   {
+    "name": "leading technology",
+    "title": "Partner",
+    "verified": false
+   },
+   {
+    "name": "Twitch Divanshu Kumar",
+    "title": "Ceo",
+    "verified": false
+   },
+   {
+    "name": "Linkedin Divanshu Kumar",
+    "title": "Ceo",
+    "verified": false
+   },
+   {
+    "name": "Youtube Twitter Twitch",
+    "title": "Co-Founder",
+    "verified": false
+   },
+   {
+    "name": "Divanshu Kumar",
+    "title": "Founder",
+    "verified": false
+   },
+   {
+    "name": "Linkedin Moinak Banerjee",
+    "title": "Co-Founder",
+    "verified": false
+   }
+  ],
+  "pattern": "first@solinas.in",
+  "mx": true,
+  "free_mail_business": false
+ },
+ {
+  "domain": "kaapimachines.com",
+  "emails": [
+   "info@kaapimachines.com",
+   "rashika@kaapimachines.com"
+  ],
+  "role_emails": [
+   "info@kaapimachines.com"
+  ],
+  "personal_emails": [
+   "rashika@kaapimachines.com"
+  ],
+  "people": [
+   {
+    "name": "Abhijeet Anand",
+    "title": "Founder",
+    "verified": false
+   },
+   {
+    "name": "Anand Thakkar",
+    "title": "Founder",
+    "verified": false
+   },
+   {
+    "name": "Rajdeep Singh",
+    "title": "Founder",
+    "verified": false
+   },
+   {
+    "name": "Tumbi Hyderabad",
+    "title": "Partner",
+    "verified": false
+   },
+   {
+    "name": "Kaffa Coffee Roasters",
+    "title": "Founder",
+    "verified": false
+   },
+   {
+    "name": "Brands DiFluid Product",
+    "title": "Partner",
+    "verified": false
+   }
+  ],
+  "pattern": "first@kaapimachines.com",
+  "mx": true,
+  "free_mail_business": false
+ }
+]

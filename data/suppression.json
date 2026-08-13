@@ -1,0 +1,42 @@
+{
+  "_comment": "Never prospect these. Existing wrrk.ai customers, logo-wall accounts, sister products, and own domains. Matched case-insensitively as a substring against company name AND domain. Sourced from new/src/components/landing/MarqueeProof.tsx, new/src/lib/feature-orgs.ts, and the docs/ incident + integration write-ups.",
+  "customers": [
+    "masakien",
+    "maai workforce",
+    "styleclub",
+    "the blu tailor",
+    "thebluetailor",
+    "myperfectfit",
+    "decorpot",
+    "furniture one",
+    "furnitureone",
+    "pullse",
+    "botwot",
+    "kvssl",
+    "ajaka",
+    "mackay fluid power",
+    "arthum",
+    "rewardz global"
+  ],
+  "own": [
+    "wrrk.ai",
+    "wrrk.space",
+    "purpleant.tech",
+    "aanya labs",
+    "aanyalabs",
+    "aarise"
+  ],
+  "vendors_not_prospects": [
+    "wati.io",
+    "aisensy.com",
+    "interakt.ai",
+    "doubletick.io",
+    "gallabox.com",
+    "zoko.io",
+    "limechat.ai",
+    "respond.io",
+    "hubspot.com",
+    "zoho.com",
+    "freshworks.com"
+  ]
+}

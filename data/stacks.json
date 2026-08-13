@@ -1,0 +1,2977 @@
+[
+ {
+  "domain": "thebluetailor.com",
+  "reachable": false,
+  "resolved": "",
+  "tools": [],
+  "wa_bsp": [],
+  "channels": {},
+  "channel_count": 0,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "none",
+  "hook": ""
+ },
+ {
+  "domain": "sleepycat.in",
+  "reachable": true,
+  "resolved": "https://sleepycat.in",
+  "tools": [
+   {
+    "name": "Judge.me",
+    "category": "email",
+    "usd_mo": 15,
+    "per_seat": false
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "MS Clarity",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Shopify",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": true,
+   "whatsapp_numbers": [
+    "918588052247"
+   ],
+   "instagram": [
+    "sleepycat.in"
+   ],
+   "facebook": [
+    "sleepycat.in"
+   ],
+   "linkedin": [],
+   "twitter": [
+    "sleepycat_india"
+   ],
+   "emails": [
+    "info@sleepycat.in"
+   ],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 5,
+  "stack_usd_mo": 15,
+  "runs_ads": false,
+  "confidence": "high",
+  "hook": "WhatsApp (wa.me/918588052247), Instagram DMs, info@sleepycat.in. You are running Judge.me.",
+  "has_inbox": false,
+  "fit": 95,
+  "fit_why": "5 front doors; WhatsApp is a live channel; WhatsApp + Instagram both open; no CRM or shared inbox detected"
+ },
+ {
+  "domain": "mamaearth.in",
+  "reachable": true,
+  "resolved": "https://mamaearth.in",
+  "tools": [
+   {
+    "name": "Chatwoot",
+    "category": "chat",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "MoEngage",
+    "category": "email",
+    "usd_mo": 75,
+    "per_seat": false
+   },
+   {
+    "name": "Judge.me",
+    "category": "email",
+    "usd_mo": 15,
+    "per_seat": false
+   },
+   {
+    "name": "Meta Pixel",
+    "category": "ads",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "MS Clarity",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Shopify",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [
+    "mamaearth.in"
+   ],
+   "facebook": [
+    "mamaearthindia"
+   ],
+   "linkedin": [
+    "mama-earth-in"
+   ],
+   "twitter": [
+    "mamaearthindia"
+   ],
+   "emails": [
+    "care@mamaearth.in"
+   ],
+   "phone": false,
+   "contact_form": true,
+   "live_chat": true
+  },
+  "channel_count": 4,
+  "stack_usd_mo": 90,
+  "runs_ads": true,
+  "confidence": "high",
+  "hook": "Instagram DMs, Chatwoot on the site, care@mamaearth.in. You are running Chatwoot, MoEngage, Judge.me.",
+  "has_inbox": true,
+  "fit": 50,
+  "fit_why": "4 front doors; running paid ads into those channels"
+ },
+ {
+  "domain": "boat-lifestyle.com",
+  "reachable": true,
+  "resolved": "https://boat-lifestyle.com",
+  "tools": [
+   {
+    "name": "CleverTap",
+    "category": "email",
+    "usd_mo": 75,
+    "per_seat": false
+   },
+   {
+    "name": "Judge.me",
+    "category": "email",
+    "usd_mo": 15,
+    "per_seat": false
+   },
+   {
+    "name": "Google Ads",
+    "category": "ads",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "MS Clarity",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Shopify",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": true,
+   "whatsapp_numbers": [
+    "919667700177"
+   ],
+   "instagram": [
+    "boat.nirvana"
+   ],
+   "facebook": [
+    "boat.lifestyle"
+   ],
+   "linkedin": [
+    "boat-lifestyle"
+   ],
+   "twitter": [
+    "rockwithboat"
+   ],
+   "emails": [
+    "careers@imaginemarketingindia.com"
+   ],
+   "phone": false,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 4,
+  "stack_usd_mo": 90,
+  "runs_ads": true,
+  "confidence": "high",
+  "hook": "WhatsApp (wa.me/919667700177), Instagram DMs, careers@imaginemarketingindia.com. You are running CleverTap, Judge.me.",
+  "has_inbox": false,
+  "fit": 95,
+  "fit_why": "4 front doors; WhatsApp is a live channel; WhatsApp + Instagram both open; no CRM or shared inbox detected; running paid ads into those channels"
+ },
+ {
+  "domain": "decorpot.com",
+  "reachable": true,
+  "resolved": "https://decorpot.com",
+  "tools": [
+   {
+    "name": "Google Ads",
+    "category": "ads",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Hotjar",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": true,
+   "whatsapp_numbers": [
+    "9108602000",
+    "919108601000",
+    "919108602000"
+   ],
+   "instagram": [
+    "decorpot.interiors"
+   ],
+   "facebook": [
+    "decorpot"
+   ],
+   "linkedin": [
+    "decorpotinteriors"
+   ],
+   "twitter": [
+    "decorpot"
+   ],
+   "emails": [
+    "hello@decorpot.com"
+   ],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 5,
+  "stack_usd_mo": 0,
+  "runs_ads": true,
+  "confidence": "medium",
+  "hook": "WhatsApp (wa.me/9108602000), Instagram DMs, hello@decorpot.com.",
+  "has_inbox": false,
+  "fit": 100,
+  "fit_why": "5 front doors; WhatsApp is a live channel; WhatsApp + Instagram both open; no CRM or shared inbox detected; running paid ads into those channels"
+ },
+ {
+  "domain": "wati.io",
+  "reachable": true,
+  "resolved": "https://wati.io",
+  "tools": [
+   {
+    "name": "HubSpot",
+    "category": "crm",
+    "usd_mo": 120,
+    "per_seat": true
+   },
+   {
+    "name": "Intercom",
+    "category": "chat",
+    "usd_mo": 234,
+    "per_seat": true
+   },
+   {
+    "name": "WATI",
+    "category": "wa_bsp",
+    "usd_mo": 23,
+    "per_seat": false
+   },
+   {
+    "name": "AiSensy",
+    "category": "wa_bsp",
+    "usd_mo": 17,
+    "per_seat": false
+   },
+   {
+    "name": "Calendly",
+    "category": "booking",
+    "usd_mo": 72,
+    "per_seat": true
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "MS Clarity",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WooCommerce",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [
+   "WATI",
+   "AiSensy"
+  ],
+  "channels": {
+   "whatsapp": true,
+   "whatsapp_numbers": [
+    "85264318721"
+   ],
+   "instagram": [
+    "wati_io",
+    "wati_brasil",
+    "wati_latam"
+   ],
+   "facebook": [
+    "groups",
+    "watiglobal",
+    "people"
+   ],
+   "linkedin": [
+    "watiglobal"
+   ],
+   "twitter": [
+    "wati_io"
+   ],
+   "emails": [],
+   "phone": false,
+   "contact_form": true,
+   "live_chat": true
+  },
+  "channel_count": 4,
+  "stack_usd_mo": 466,
+  "runs_ads": false,
+  "confidence": "high",
+  "hook": "WhatsApp (wa.me/85264318721), Instagram DMs, Intercom on the site. You are running HubSpot, Intercom, WATI.",
+  "has_inbox": true,
+  "fit": 80,
+  "fit_why": "4 front doors; WhatsApp is a live channel; WhatsApp + Instagram both open; pays for WATI (WhatsApp only, no CRM behind it)"
+ },
+ {
+  "domain": "prolificoverseaseducation.com",
+  "reachable": false,
+  "resolved": "",
+  "tools": [],
+  "wa_bsp": [],
+  "channels": {},
+  "channel_count": 0,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "none",
+  "hook": ""
+ },
+ {
+  "domain": "acaddcentre.com",
+  "reachable": true,
+  "resolved": "https://acaddcentre.com",
+  "tools": [
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": true,
+   "whatsapp_numbers": [
+    "919004433737"
+   ],
+   "instagram": [
+    "acaddcentre"
+   ],
+   "facebook": [
+    "acaddcentre.in"
+   ],
+   "linkedin": [],
+   "twitter": [],
+   "emails": [],
+   "phone": false,
+   "contact_form": false,
+   "live_chat": false
+  },
+  "channel_count": 2,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "medium",
+  "hook": "WhatsApp (wa.me/919004433737), Instagram DMs.",
+  "has_inbox": false,
+  "fit": 65,
+  "fit_why": "WhatsApp is a live channel; WhatsApp + Instagram both open; no CRM or shared inbox detected"
+ },
+ {
+  "domain": "dlifeinteriors.com",
+  "reachable": true,
+  "resolved": "https://dlifeinteriors.com",
+  "tools": [
+   {
+    "name": "Zoho",
+    "category": "crm",
+    "usd_mo": 80,
+    "per_seat": true
+   },
+   {
+    "name": "Tidio",
+    "category": "chat",
+    "usd_mo": 29,
+    "per_seat": false
+   },
+   {
+    "name": "Meta Pixel",
+    "category": "ads",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Google Ads",
+    "category": "ads",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": true,
+   "whatsapp_numbers": [
+    "917558991111"
+   ],
+   "instagram": [
+    "dlifeinteriors"
+   ],
+   "facebook": [
+    "dlifehome"
+   ],
+   "linkedin": [
+    "dlife-interiors"
+   ],
+   "twitter": [],
+   "emails": [],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": true
+  },
+  "channel_count": 5,
+  "stack_usd_mo": 109,
+  "runs_ads": true,
+  "confidence": "high",
+  "hook": "WhatsApp (wa.me/917558991111), Instagram DMs, Tidio on the site. You are running Zoho, Tidio.",
+  "has_inbox": true,
+  "fit": 85,
+  "fit_why": "5 front doors; WhatsApp is a live channel; WhatsApp + Instagram both open; running paid ads into those channels"
+ },
+ {
+  "domain": "montdorinteriors.com",
+  "reachable": true,
+  "resolved": "http://montdorinteriors.com",
+  "tools": [],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [],
+   "facebook": [],
+   "linkedin": [],
+   "twitter": [],
+   "emails": [],
+   "phone": false,
+   "contact_form": false,
+   "live_chat": false
+  },
+  "channel_count": 0,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "medium",
+  "hook": "",
+  "has_inbox": false,
+  "fit": 20,
+  "fit_why": "no CRM or shared inbox detected"
+ },
+ {
+  "domain": "inviedutech.com",
+  "reachable": true,
+  "resolved": "https://inviedutech.com",
+  "tools": [
+   {
+    "name": "Google Ads",
+    "category": "ads",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": true,
+   "whatsapp_numbers": [
+    "840916760422"
+   ],
+   "instagram": [
+    "studymbbs_invietnam_"
+   ],
+   "facebook": [],
+   "linkedin": [],
+   "twitter": [],
+   "emails": [
+    "prajapathi.m@inviedutech.com.vn"
+   ],
+   "phone": false,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 4,
+  "stack_usd_mo": 0,
+  "runs_ads": true,
+  "confidence": "medium",
+  "hook": "WhatsApp (wa.me/840916760422), Instagram DMs, prajapathi.m@inviedutech.com.vn.",
+  "has_inbox": false,
+  "fit": 95,
+  "fit_why": "4 front doors; WhatsApp is a live channel; WhatsApp + Instagram both open; no CRM or shared inbox detected; running paid ads into those channels"
+ },
+ {
+  "domain": "dubaidesignuae.com",
+  "reachable": false,
+  "resolved": "",
+  "tools": [],
+  "wa_bsp": [],
+  "channels": {},
+  "channel_count": 0,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "none",
+  "hook": ""
+ },
+ {
+  "domain": "montdorinterior.com",
+  "reachable": true,
+  "resolved": "https://montdorinterior.com",
+  "tools": [
+   {
+    "name": "Meta Pixel",
+    "category": "ads",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Google Ads",
+    "category": "ads",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": true,
+   "whatsapp_numbers": [
+    "918980531520"
+   ],
+   "instagram": [
+    "montdorinterior"
+   ],
+   "facebook": [
+    "montdorpl"
+   ],
+   "linkedin": [],
+   "twitter": [
+    "webdev"
+   ],
+   "emails": [
+    "chandni@montdorinterior.com",
+    "gandhinagar@montdorinterior.com",
+    "ghatkopar@montdorinterior.com",
+    "goregaon@montdorinterior.com",
+    "info@montdorinterior.com"
+   ],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 5,
+  "stack_usd_mo": 0,
+  "runs_ads": true,
+  "confidence": "medium",
+  "hook": "WhatsApp (wa.me/918980531520), Instagram DMs, chandni@montdorinterior.com.",
+  "has_inbox": false,
+  "fit": 100,
+  "fit_why": "5 front doors; WhatsApp is a live channel; WhatsApp + Instagram both open; no CRM or shared inbox detected; running paid ads into those channels"
+ },
+ {
+  "domain": "musedesign.ae",
+  "reachable": true,
+  "resolved": "https://musedesign.ae",
+  "tools": [
+   {
+    "name": "WooCommerce",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": true,
+   "whatsapp_numbers": [
+    "971553573290"
+   ],
+   "instagram": [
+    "musedesign",
+    "musedesign.ae"
+   ],
+   "facebook": [
+    "musedesign",
+    "musedesign.ae"
+   ],
+   "linkedin": [],
+   "twitter": [],
+   "emails": [
+    "info@musedesign.ae"
+   ],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 5,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "medium",
+  "hook": "WhatsApp (wa.me/971553573290), Instagram DMs, info@musedesign.ae.",
+  "has_inbox": false,
+  "fit": 95,
+  "fit_why": "5 front doors; WhatsApp is a live channel; WhatsApp + Instagram both open; no CRM or shared inbox detected"
+ },
+ {
+  "domain": "bemastereducation.com",
+  "reachable": true,
+  "resolved": "https://bemastereducation.com",
+  "tools": [
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [
+    "bemaster.in"
+   ],
+   "facebook": [],
+   "linkedin": [],
+   "twitter": [],
+   "emails": [
+    "bemaster.in@gmail.com"
+   ],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 4,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "medium",
+  "hook": "Instagram DMs, bemaster.in@gmail.com, a contact form.",
+  "has_inbox": false,
+  "fit": 60,
+  "fit_why": "4 front doors; no CRM or shared inbox detected"
+ },
+ {
+  "domain": "excellenthomedecor.com",
+  "reachable": true,
+  "resolved": "https://excellenthomedecor.com",
+  "tools": [
+   {
+    "name": "Meta Pixel",
+    "category": "ads",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "MS Clarity",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [
+    "excellenthomedecor"
+   ],
+   "facebook": [
+    "ehdecor"
+   ],
+   "linkedin": [],
+   "twitter": [],
+   "emails": [],
+   "phone": false,
+   "contact_form": false,
+   "live_chat": false
+  },
+  "channel_count": 1,
+  "stack_usd_mo": 0,
+  "runs_ads": true,
+  "confidence": "medium",
+  "hook": "Instagram DMs.",
+  "has_inbox": false,
+  "fit": 40,
+  "fit_why": "no CRM or shared inbox detected; running paid ads into those channels"
+ },
+ {
+  "domain": "khainterior.ae",
+  "reachable": true,
+  "resolved": "https://khainterior.ae",
+  "tools": [],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [
+    "khainterior"
+   ],
+   "facebook": [
+    "kha-interior-671116573040095"
+   ],
+   "linkedin": [],
+   "twitter": [],
+   "emails": [
+    "m.amin@khainterior.ae"
+   ],
+   "phone": false,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 3,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "medium",
+  "hook": "Instagram DMs, m.amin@khainterior.ae, a contact form.",
+  "has_inbox": false,
+  "fit": 50,
+  "fit_why": "no CRM or shared inbox detected"
+ },
+ {
+  "domain": "apexhomes.ae",
+  "reachable": true,
+  "resolved": "https://apexhomes.ae",
+  "tools": [
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": true,
+   "whatsapp_numbers": [
+    "971558342377"
+   ],
+   "instagram": [
+    "apexhomes.ae"
+   ],
+   "facebook": [],
+   "linkedin": [],
+   "twitter": [],
+   "emails": [
+    "info@apexhomes.ae"
+   ],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 5,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "medium",
+  "hook": "WhatsApp (wa.me/971558342377), Instagram DMs, info@apexhomes.ae.",
+  "has_inbox": false,
+  "fit": 95,
+  "fit_why": "5 front doors; WhatsApp is a live channel; WhatsApp + Instagram both open; no CRM or shared inbox detected"
+ },
+ {
+  "domain": "mbbsexpert.in",
+  "reachable": true,
+  "resolved": "https://mbbsexpert.in",
+  "tools": [
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [
+    "mbbs_expert"
+   ],
+   "facebook": [
+    "mbbs-admission-113182003581141",
+    "www.mbbsexpert.in"
+   ],
+   "linkedin": [],
+   "twitter": [],
+   "emails": [],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 3,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "medium",
+  "hook": "Instagram DMs, a contact form.",
+  "has_inbox": false,
+  "fit": 50,
+  "fit_why": "no CRM or shared inbox detected"
+ },
+ {
+  "domain": "keka.com",
+  "reachable": true,
+  "resolved": "https://keka.com",
+  "tools": [
+   {
+    "name": "HubSpot",
+    "category": "crm",
+    "usd_mo": 240,
+    "per_seat": true
+   },
+   {
+    "name": "Keka",
+    "category": "hr",
+    "usd_mo": 90,
+    "per_seat": false
+   },
+   {
+    "name": "Meta Pixel",
+    "category": "ads",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [
+    "kekahr"
+   ],
+   "facebook": [
+    "kekadotcom",
+    "kekahr"
+   ],
+   "linkedin": [
+    "keka-hr"
+   ],
+   "twitter": [
+    "kekadotcom",
+    "kekahr_official"
+   ],
+   "emails": [
+    "isales@keka.com",
+    "support@keka.com"
+   ],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 4,
+  "stack_usd_mo": 330,
+  "runs_ads": true,
+  "confidence": "high",
+  "hook": "Instagram DMs, isales@keka.com, a contact form. You are running HubSpot.",
+  "has_inbox": true,
+  "fit": 50,
+  "fit_why": "4 front doors; running paid ads into those channels",
+  "module_fit": {
+   "inbox": 48,
+   "crm": 0,
+   "hr": 0,
+   "tools": 0,
+   "email": 36,
+   "whatsapp": 0
+  },
+  "gaps": [],
+  "best_module": "inbox"
+ },
+ {
+  "domain": "zoho.com",
+  "reachable": true,
+  "resolved": "https://zoho.com",
+  "tools": [],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [],
+   "facebook": [
+    "zoho"
+   ],
+   "linkedin": [
+    "zohocorp"
+   ],
+   "twitter": [
+    "zoho"
+   ],
+   "emails": [
+    "abuse@zohocorp.com",
+    "alejandro.g@zohocorp.com",
+    "cancellation@zohocorp.com",
+    "cn-sales@zohocorp.com",
+    "jessica.loo@zohocorp.com"
+   ],
+   "phone": true,
+   "contact_form": false,
+   "live_chat": false
+  },
+  "channel_count": 2,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "medium",
+  "hook": "abuse@zohocorp.com.",
+  "has_inbox": false,
+  "fit": 40,
+  "fit_why": "no CRM or shared inbox detected",
+  "module_fit": {
+   "inbox": 49,
+   "crm": 35,
+   "hr": 0,
+   "tools": 0,
+   "email": 95,
+   "whatsapp": 0
+  },
+  "gaps": [
+   "5 published inboxes, no helpdesk"
+  ],
+  "best_module": "email"
+ },
+ {
+  "domain": "dreamworth.in",
+  "reachable": true,
+  "resolved": "https://dreamworth.in",
+  "tools": [
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": true,
+   "whatsapp_numbers": [
+    "918605697774",
+    "919740077151"
+   ],
+   "instagram": [
+    "dreamworth_solutions"
+   ],
+   "facebook": [
+    "dreamworthsolution"
+   ],
+   "linkedin": [
+    "dreamworth-solutions"
+   ],
+   "twitter": [
+    "dreamworthsol",
+    "dreamworthin"
+   ],
+   "emails": [
+    "info@dreamworth.in",
+    "sales@dreamworth.in"
+   ],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 5,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "medium",
+  "hook": "WhatsApp (wa.me/918605697774), Instagram DMs, info@dreamworth.in.",
+  "has_inbox": false,
+  "fit": 95,
+  "fit_why": "5 front doors; WhatsApp is a live channel; WhatsApp + Instagram both open; no CRM or shared inbox detected",
+  "module_fit": {
+   "inbox": 85,
+   "crm": 35,
+   "hr": 0,
+   "tools": 0,
+   "email": 36,
+   "whatsapp": 45
+  },
+  "gaps": [
+   "5 channels, no shared inbox"
+  ],
+  "best_module": "inbox"
+ },
+ {
+  "domain": "socialchamps.com",
+  "reachable": true,
+  "resolved": "https://socialchamps.com",
+  "tools": [
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [],
+   "facebook": [],
+   "linkedin": [],
+   "twitter": [],
+   "emails": [],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 2,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "low",
+  "hook": "a contact form.",
+  "has_inbox": false,
+  "fit": 40,
+  "fit_why": "no CRM or shared inbox detected",
+  "module_fit": {
+   "inbox": 49,
+   "crm": 35,
+   "hr": 0,
+   "tools": 0,
+   "email": 0,
+   "whatsapp": 0
+  },
+  "gaps": [],
+  "best_module": "inbox"
+ },
+ {
+  "domain": "brandloom.com",
+  "reachable": true,
+  "resolved": "https://brandloom.com",
+  "tools": [
+   {
+    "name": "Interakt",
+    "category": "wa_bsp",
+    "usd_mo": 20,
+    "per_seat": false
+   },
+   {
+    "name": "Meta Pixel",
+    "category": "ads",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "MS Clarity",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WooCommerce",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [
+   "Interakt"
+  ],
+  "channels": {
+   "whatsapp": true,
+   "whatsapp_numbers": [],
+   "instagram": [
+    "brandloom"
+   ],
+   "facebook": [
+    "brandloomconsulting"
+   ],
+   "linkedin": [
+    "brandloom-consulting"
+   ],
+   "twitter": [
+    "brandloom"
+   ],
+   "emails": [
+    "care@brandloom.com"
+   ],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 5,
+  "stack_usd_mo": 20,
+  "runs_ads": true,
+  "confidence": "high",
+  "hook": "WhatsApp (wa.me link), Instagram DMs, care@brandloom.com. You are running Interakt.",
+  "has_inbox": true,
+  "fit": 100,
+  "fit_why": "5 front doors; WhatsApp is a live channel; WhatsApp + Instagram both open; pays for Interakt (WhatsApp only, no CRM behind it); running paid ads into those channels",
+  "module_fit": {
+   "inbox": 60,
+   "crm": 60,
+   "hr": 0,
+   "tools": 0,
+   "email": 18,
+   "whatsapp": 90
+  },
+  "gaps": [
+   "paying for ads with no CRM behind them"
+  ],
+  "best_module": "whatsapp"
+ },
+ {
+  "domain": "ad2brand.com",
+  "reachable": true,
+  "resolved": "https://ad2brand.com",
+  "tools": [
+   {
+    "name": "WooCommerce",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": true,
+   "whatsapp_numbers": [
+    "919370514890"
+   ],
+   "instagram": [
+    "ad2brandagency"
+   ],
+   "facebook": [
+    "ad2brand",
+    "ad2brand.best.digital.marketing.agency.in.pune"
+   ],
+   "linkedin": [
+    "13328659"
+   ],
+   "twitter": [
+    "ad2brand"
+   ],
+   "emails": [],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 4,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "medium",
+  "hook": "WhatsApp (wa.me/919370514890), Instagram DMs, a contact form.",
+  "has_inbox": false,
+  "fit": 85,
+  "fit_why": "4 front doors; WhatsApp is a live channel; WhatsApp + Instagram both open; no CRM or shared inbox detected",
+  "module_fit": {
+   "inbox": 73,
+   "crm": 35,
+   "hr": 0,
+   "tools": 0,
+   "email": 0,
+   "whatsapp": 45
+  },
+  "gaps": [
+   "4 channels, no shared inbox"
+  ],
+  "best_module": "inbox"
+ },
+ {
+  "domain": "brainminetech.com",
+  "reachable": true,
+  "resolved": "https://brainminetech.com",
+  "tools": [
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": true,
+   "whatsapp_numbers": [
+    "918446477774"
+   ],
+   "instagram": [
+    "brainmineindia"
+   ],
+   "facebook": [
+    "brainminetech"
+   ],
+   "linkedin": [
+    "brainmine",
+    "brainmine-technology-"
+   ],
+   "twitter": [
+    "brainminetechin"
+   ],
+   "emails": [],
+   "phone": true,
+   "contact_form": false,
+   "live_chat": false
+  },
+  "channel_count": 3,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "medium",
+  "hook": "WhatsApp (wa.me/918446477774), Instagram DMs.",
+  "has_inbox": false,
+  "fit": 75,
+  "fit_why": "WhatsApp is a live channel; WhatsApp + Instagram both open; no CRM or shared inbox detected",
+  "module_fit": {
+   "inbox": 61,
+   "crm": 35,
+   "hr": 0,
+   "tools": 0,
+   "email": 0,
+   "whatsapp": 45
+  },
+  "gaps": [],
+  "best_module": "inbox"
+ },
+ {
+  "domain": "brandup.in",
+  "reachable": true,
+  "resolved": "https://brandup.in",
+  "tools": [
+   {
+    "name": "Google Ads",
+    "category": "ads",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": true,
+   "whatsapp_numbers": [
+    "919922955888"
+   ],
+   "instagram": [],
+   "facebook": [
+    "brandup-295203197342356"
+   ],
+   "linkedin": [
+    "brandup-digital"
+   ],
+   "twitter": [
+    "brandupinfo"
+   ],
+   "emails": [
+    "support@artisticfella.com"
+   ],
+   "phone": false,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 3,
+  "stack_usd_mo": 0,
+  "runs_ads": true,
+  "confidence": "medium",
+  "hook": "WhatsApp (wa.me/919922955888), support@artisticfella.com, a contact form.",
+  "has_inbox": false,
+  "fit": 75,
+  "fit_why": "WhatsApp is a live channel; no CRM or shared inbox detected; running paid ads into those channels",
+  "module_fit": {
+   "inbox": 61,
+   "crm": 60,
+   "hr": 0,
+   "tools": 0,
+   "email": 18,
+   "whatsapp": 70
+  },
+  "gaps": [
+   "paying for ads with no CRM behind them"
+  ],
+  "best_module": "whatsapp"
+ },
+ {
+  "domain": "talkd.co",
+  "reachable": true,
+  "resolved": "https://talkd.co",
+  "tools": [
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [
+    "talkdinc"
+   ],
+   "facebook": [
+    "talkdinc"
+   ],
+   "linkedin": [
+    "talkd.co"
+   ],
+   "twitter": [
+    "talkdinc"
+   ],
+   "emails": [
+    "info@talkd.co",
+    "sales@talkd.co"
+   ],
+   "phone": false,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 3,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "low",
+  "hook": "Instagram DMs, info@talkd.co, a contact form.",
+  "has_inbox": false,
+  "fit": 50,
+  "fit_why": "no CRM or shared inbox detected",
+  "module_fit": {
+   "inbox": 61,
+   "crm": 35,
+   "hr": 0,
+   "tools": 0,
+   "email": 36,
+   "whatsapp": 0
+  },
+  "gaps": [],
+  "best_module": "inbox"
+ },
+ {
+  "domain": "aarnasystems.com",
+  "reachable": true,
+  "resolved": "https://aarnasystems.com",
+  "tools": [
+   {
+    "name": "Google Ads",
+    "category": "ads",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [
+    "aarna.systems"
+   ],
+   "facebook": [
+    "aarnasystems"
+   ],
+   "linkedin": [
+    "aarna-systems"
+   ],
+   "twitter": [
+    "aarnasystems"
+   ],
+   "emails": [
+    "info@aarnasystems.com"
+   ],
+   "phone": true,
+   "contact_form": false,
+   "live_chat": false
+  },
+  "channel_count": 3,
+  "stack_usd_mo": 0,
+  "runs_ads": true,
+  "confidence": "medium",
+  "hook": "Instagram DMs, info@aarnasystems.com.",
+  "has_inbox": false,
+  "fit": 60,
+  "fit_why": "no CRM or shared inbox detected; running paid ads into those channels",
+  "module_fit": {
+   "inbox": 61,
+   "crm": 60,
+   "hr": 0,
+   "tools": 0,
+   "email": 18,
+   "whatsapp": 0
+  },
+  "gaps": [
+   "paying for ads with no CRM behind them"
+  ],
+  "best_module": "inbox"
+ },
+ {
+  "domain": "ikf.co.in",
+  "reachable": true,
+  "resolved": "https://ikf.co.in",
+  "tools": [
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": true,
+   "whatsapp_numbers": [
+    "919503939911"
+   ],
+   "instagram": [
+    "ikfdigital"
+   ],
+   "facebook": [
+    "ikfdigital"
+   ],
+   "linkedin": [
+    "ikfdigital"
+   ],
+   "twitter": [],
+   "emails": [
+    "enquiry@ikf.co.in"
+   ],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 5,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "low",
+  "hook": "WhatsApp (wa.me/919503939911), Instagram DMs, enquiry@ikf.co.in.",
+  "has_inbox": false,
+  "fit": 95,
+  "fit_why": "5 front doors; WhatsApp is a live channel; WhatsApp + Instagram both open; no CRM or shared inbox detected",
+  "module_fit": {
+   "inbox": 85,
+   "crm": 35,
+   "hr": 0,
+   "tools": 0,
+   "email": 18,
+   "whatsapp": 45
+  },
+  "gaps": [
+   "5 channels, no shared inbox"
+  ],
+  "best_module": "inbox"
+ },
+ {
+  "domain": "bleap.in",
+  "reachable": true,
+  "resolved": "https://bleap.in",
+  "tools": [
+   {
+    "name": "HubSpot",
+    "category": "crm",
+    "usd_mo": 900,
+    "per_seat": true
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "MS Clarity",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [
+    "bleapdigital"
+   ],
+   "facebook": [
+    "bleap.in",
+    "bleapdigital"
+   ],
+   "linkedin": [
+    "bleap",
+    "bleapdigital"
+   ],
+   "twitter": [
+    "digitalbleap",
+    "bleapdigital"
+   ],
+   "emails": [
+    "info@bleap.in",
+    "info@bleapdigital.com"
+   ],
+   "phone": true,
+   "contact_form": false,
+   "live_chat": false
+  },
+  "channel_count": 3,
+  "stack_usd_mo": 900,
+  "runs_ads": false,
+  "confidence": "high",
+  "hook": "Instagram DMs, info@bleap.in. You are running HubSpot.",
+  "has_inbox": true,
+  "fit": 30,
+  "fit_why": "",
+  "module_fit": {
+   "inbox": 36,
+   "crm": 0,
+   "hr": 0,
+   "tools": 0,
+   "email": 36,
+   "whatsapp": 0
+  },
+  "gaps": [],
+  "best_module": "inbox"
+ },
+ {
+  "domain": "xebecindia.com",
+  "reachable": true,
+  "resolved": "https://xebecindia.com",
+  "tools": [
+   {
+    "name": "Tawk.to",
+    "category": "chat",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Meta Pixel",
+    "category": "ads",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "MS Clarity",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [
+    "xebec_communications"
+   ],
+   "facebook": [
+    "xebecindia",
+    "xebeccommunications"
+   ],
+   "linkedin": [
+    "xebec-india",
+    "xebecindia"
+   ],
+   "twitter": [
+    "xebecindia",
+    "xebeccomm"
+   ],
+   "emails": [
+    "anilbhat@xebecindia.com",
+    "hr@xebecindia.com"
+   ],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": true
+  },
+  "channel_count": 5,
+  "stack_usd_mo": 0,
+  "runs_ads": true,
+  "confidence": "high",
+  "hook": "Instagram DMs, Tawk.to on the site, anilbhat@xebecindia.com. You are running Tawk.to.",
+  "has_inbox": true,
+  "fit": 60,
+  "fit_why": "5 front doors; running paid ads into those channels",
+  "module_fit": {
+   "inbox": 60,
+   "crm": 60,
+   "hr": 0,
+   "tools": 0,
+   "email": 36,
+   "whatsapp": 0
+  },
+  "gaps": [
+   "paying for ads with no CRM behind them"
+  ],
+  "best_module": "inbox"
+ },
+ {
+  "domain": "osumare.com",
+  "reachable": true,
+  "resolved": "https://osumare.com",
+  "tools": [
+   {
+    "name": "Tawk.to",
+    "category": "chat",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WooCommerce",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": true,
+   "whatsapp_numbers": [
+    "8459876226"
+   ],
+   "instagram": [
+    "osumaremarketingsolutions"
+   ],
+   "facebook": [
+    "osumare.solutions"
+   ],
+   "linkedin": [
+    "osumare"
+   ],
+   "twitter": [],
+   "emails": [
+    "hello@osumare.in"
+   ],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": true
+  },
+  "channel_count": 6,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "high",
+  "hook": "WhatsApp (wa.me/8459876226), Instagram DMs, Tawk.to on the site. You are running Tawk.to.",
+  "has_inbox": true,
+  "fit": 85,
+  "fit_why": "6 front doors; WhatsApp is a live channel; WhatsApp + Instagram both open",
+  "module_fit": {
+   "inbox": 60,
+   "crm": 35,
+   "hr": 0,
+   "tools": 0,
+   "email": 18,
+   "whatsapp": 45
+  },
+  "gaps": [],
+  "best_module": "inbox"
+ },
+ {
+  "domain": "tempestadvertising.com",
+  "reachable": true,
+  "resolved": "https://tempestadvertising.com",
+  "tools": [
+   {
+    "name": "Meta Pixel",
+    "category": "ads",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Google Ads",
+    "category": "ads",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [
+    "tempest_advertising"
+   ],
+   "facebook": [
+    "tempestadvertising",
+    "people"
+   ],
+   "linkedin": [
+    "tempest-advertising"
+   ],
+   "twitter": [
+    "tempestadv"
+   ],
+   "emails": [
+    "business@tempestadvertising.com",
+    "careers@tempestadvertising.com"
+   ],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 4,
+  "stack_usd_mo": 0,
+  "runs_ads": true,
+  "confidence": "medium",
+  "hook": "Instagram DMs, business@tempestadvertising.com, a contact form.",
+  "has_inbox": false,
+  "fit": 70,
+  "fit_why": "4 front doors; no CRM or shared inbox detected; running paid ads into those channels",
+  "module_fit": {
+   "inbox": 73,
+   "crm": 60,
+   "hr": 0,
+   "tools": 0,
+   "email": 36,
+   "whatsapp": 0
+  },
+  "gaps": [
+   "4 channels, no shared inbox",
+   "paying for ads with no CRM behind them"
+  ],
+  "best_module": "inbox"
+ },
+ {
+  "domain": "yashus.in",
+  "reachable": true,
+  "resolved": "https://yashus.in",
+  "tools": [
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WooCommerce",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [
+    "yashusdigitalmarketing"
+   ],
+   "facebook": [
+    "yashuspune",
+    "yashus-digital-marketing-pvt-ltd-214444102792625"
+   ],
+   "linkedin": [
+    "yashus-digital-marketing",
+    "yashus-digital-marketing-pvt-ltd"
+   ],
+   "twitter": [
+    "yashuspune"
+   ],
+   "emails": [
+    "info@yashus.in",
+    "people@yashus.in",
+    "sujay@yashus.in"
+   ],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 4,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "medium",
+  "hook": "Instagram DMs, info@yashus.in, a contact form.",
+  "has_inbox": false,
+  "fit": 60,
+  "fit_why": "4 front doors; no CRM or shared inbox detected",
+  "module_fit": {
+   "inbox": 73,
+   "crm": 35,
+   "hr": 0,
+   "tools": 0,
+   "email": 79,
+   "whatsapp": 0
+  },
+  "gaps": [
+   "4 channels, no shared inbox",
+   "3 published inboxes, no helpdesk"
+  ],
+  "best_module": "email"
+ },
+ {
+  "domain": "oliosolutions.com",
+  "reachable": true,
+  "resolved": "https://oliosolutions.com",
+  "tools": [],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [],
+   "facebook": [],
+   "linkedin": [],
+   "twitter": [],
+   "emails": [],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 2,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "medium",
+  "hook": "a contact form.",
+  "has_inbox": false,
+  "fit": 40,
+  "fit_why": "no CRM or shared inbox detected",
+  "module_fit": {
+   "inbox": 49,
+   "crm": 35,
+   "hr": 0,
+   "tools": 0,
+   "email": 0,
+   "whatsapp": 0
+  },
+  "gaps": [],
+  "best_module": "inbox"
+ },
+ {
+  "domain": "echovme.in",
+  "reachable": true,
+  "resolved": "https://echovme.in",
+  "tools": [
+   {
+    "name": "Meta Pixel",
+    "category": "ads",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WooCommerce",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": true,
+   "whatsapp_numbers": [
+    "919176402555"
+   ],
+   "instagram": [
+    "soravjain",
+    "echovme_"
+   ],
+   "facebook": [
+    "soravjaindigital",
+    "echovme"
+   ],
+   "linkedin": [
+    "echovme"
+   ],
+   "twitter": [
+    "soravjain",
+    "echovme"
+   ],
+   "emails": [],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 4,
+  "stack_usd_mo": 0,
+  "runs_ads": true,
+  "confidence": "medium",
+  "hook": "WhatsApp (wa.me/919176402555), Instagram DMs, a contact form.",
+  "has_inbox": false,
+  "fit": 95,
+  "fit_why": "4 front doors; WhatsApp is a live channel; WhatsApp + Instagram both open; no CRM or shared inbox detected; running paid ads into those channels",
+  "module_fit": {
+   "inbox": 73,
+   "crm": 60,
+   "hr": 0,
+   "tools": 0,
+   "email": 0,
+   "whatsapp": 70
+  },
+  "gaps": [
+   "4 channels, no shared inbox",
+   "paying for ads with no CRM behind them"
+  ],
+  "best_module": "inbox"
+ },
+ {
+  "domain": "brightbraintech.com",
+  "reachable": true,
+  "resolved": "https://brightbraintech.com",
+  "tools": [
+   {
+    "name": "Meta Pixel",
+    "category": "ads",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Google Ads",
+    "category": "ads",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "MS Clarity",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": true,
+   "whatsapp_numbers": [
+    "918446068747",
+    "919607978000"
+   ],
+   "instagram": [
+    "brightbraintech"
+   ],
+   "facebook": [
+    "brightbraintech"
+   ],
+   "linkedin": [
+    "brightbraintech"
+   ],
+   "twitter": [],
+   "emails": [
+    "hr@brightbraintech.com",
+    "sales@brightbraintech.com"
+   ],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 5,
+  "stack_usd_mo": 0,
+  "runs_ads": true,
+  "confidence": "medium",
+  "hook": "WhatsApp (wa.me/918446068747), Instagram DMs, hr@brightbraintech.com.",
+  "has_inbox": false,
+  "fit": 100,
+  "fit_why": "5 front doors; WhatsApp is a live channel; WhatsApp + Instagram both open; no CRM or shared inbox detected; running paid ads into those channels",
+  "module_fit": {
+   "inbox": 85,
+   "crm": 60,
+   "hr": 0,
+   "tools": 0,
+   "email": 36,
+   "whatsapp": 70
+  },
+  "gaps": [
+   "5 channels, no shared inbox",
+   "paying for ads with no CRM behind them"
+  ],
+  "best_module": "inbox"
+ },
+ {
+  "domain": "optimizedinfotech.com",
+  "reachable": true,
+  "resolved": "https://optimizedinfotech.com",
+  "tools": [
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": true,
+   "whatsapp_numbers": [
+    "918007122500"
+   ],
+   "instagram": [
+    "optimizedinfotech"
+   ],
+   "facebook": [
+    "optimizedinfotech"
+   ],
+   "linkedin": [
+    "optimized-infotech"
+   ],
+   "twitter": [
+    "optimizedindia"
+   ],
+   "emails": [
+    "info@optimizedinfotech.com",
+    "milind@optimizedinfotech.com"
+   ],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 5,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "low",
+  "hook": "WhatsApp (wa.me/918007122500), Instagram DMs, info@optimizedinfotech.com.",
+  "has_inbox": false,
+  "fit": 95,
+  "fit_why": "5 front doors; WhatsApp is a live channel; WhatsApp + Instagram both open; no CRM or shared inbox detected",
+  "module_fit": {
+   "inbox": 85,
+   "crm": 35,
+   "hr": 0,
+   "tools": 0,
+   "email": 36,
+   "whatsapp": 45
+  },
+  "gaps": [
+   "5 channels, no shared inbox"
+  ],
+  "best_module": "inbox"
+ },
+ {
+  "domain": "skovian.com",
+  "reachable": true,
+  "resolved": "https://skovian.com",
+  "tools": [
+   {
+    "name": "HubSpot",
+    "category": "crm",
+    "usd_mo": 900,
+    "per_seat": true
+   },
+   {
+    "name": "Meta Pixel",
+    "category": "ads",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "MS Clarity",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WooCommerce",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": true,
+   "whatsapp_numbers": [
+    "919130025425"
+   ],
+   "instagram": [
+    "skovian"
+   ],
+   "facebook": [
+    "skovian"
+   ],
+   "linkedin": [
+    "2248067",
+    "skovian-ventures"
+   ],
+   "twitter": [
+    "skovianventures"
+   ],
+   "emails": [
+    "careers@skovian.com",
+    "sales@skovian.com",
+    "support@skovian.com"
+   ],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 5,
+  "stack_usd_mo": 900,
+  "runs_ads": true,
+  "confidence": "high",
+  "hook": "WhatsApp (wa.me/919130025425), Instagram DMs, careers@skovian.com. You are running HubSpot.",
+  "has_inbox": true,
+  "fit": 85,
+  "fit_why": "5 front doors; WhatsApp is a live channel; WhatsApp + Instagram both open; running paid ads into those channels",
+  "module_fit": {
+   "inbox": 60,
+   "crm": 0,
+   "hr": 0,
+   "tools": 0,
+   "email": 79,
+   "whatsapp": 70
+  },
+  "gaps": [
+   "3 published inboxes, no helpdesk"
+  ],
+  "best_module": "email"
+ },
+ {
+  "domain": "truthandhair.in",
+  "reachable": true,
+  "resolved": "https://truthandhair.in",
+  "tools": [
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [],
+   "facebook": [],
+   "linkedin": [],
+   "twitter": [],
+   "emails": [],
+   "phone": false,
+   "contact_form": false,
+   "live_chat": false
+  },
+  "channel_count": 0,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "medium",
+  "hook": "",
+  "has_inbox": false,
+  "fit": 20,
+  "fit_why": "no CRM or shared inbox detected",
+  "module_fit": {
+   "inbox": 25,
+   "crm": 35,
+   "hr": 0,
+   "tools": 0,
+   "email": 0,
+   "whatsapp": 0
+  },
+  "gaps": [],
+  "best_module": "crm"
+ },
+ {
+  "domain": "fixxly.com",
+  "reachable": true,
+  "resolved": "https://fixxly.com",
+  "tools": [],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [],
+   "facebook": [],
+   "linkedin": [],
+   "twitter": [],
+   "emails": [],
+   "phone": false,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 1,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "medium",
+  "hook": "a contact form.",
+  "has_inbox": false,
+  "fit": 30,
+  "fit_why": "no CRM or shared inbox detected",
+  "module_fit": {
+   "inbox": 37,
+   "crm": 35,
+   "hr": 0,
+   "tools": 0,
+   "email": 0,
+   "whatsapp": 0
+  },
+  "gaps": [],
+  "best_module": "inbox"
+ },
+ {
+  "domain": "fixxly.in",
+  "reachable": true,
+  "resolved": "https://fixxly.in",
+  "tools": [
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [],
+   "facebook": [],
+   "linkedin": [],
+   "twitter": [],
+   "emails": [
+    "hello@fixxly.in"
+   ],
+   "phone": false,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 2,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "medium",
+  "hook": "hello@fixxly.in, a contact form.",
+  "has_inbox": false,
+  "fit": 40,
+  "fit_why": "no CRM or shared inbox detected",
+  "module_fit": {
+   "inbox": 49,
+   "crm": 35,
+   "hr": 0,
+   "tools": 0,
+   "email": 18,
+   "whatsapp": 0
+  },
+  "gaps": [],
+  "best_module": "inbox"
+ },
+ {
+  "domain": "vaaree.com",
+  "reachable": true,
+  "resolved": "https://vaaree.com",
+  "tools": [
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Shopify",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [
+    "vaareehome"
+   ],
+   "facebook": [
+    "vaareehome"
+   ],
+   "linkedin": [
+    "vaareehome"
+   ],
+   "twitter": [
+    "vaareehome"
+   ],
+   "emails": [],
+   "phone": false,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 2,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "low",
+  "hook": "Instagram DMs, a contact form.",
+  "has_inbox": false,
+  "fit": 40,
+  "fit_why": "no CRM or shared inbox detected",
+  "module_fit": {
+   "inbox": 49,
+   "crm": 35,
+   "hr": 0,
+   "tools": 0,
+   "email": 0,
+   "whatsapp": 0
+  },
+  "gaps": [],
+  "best_module": "inbox"
+ },
+ {
+  "domain": "truthandhair.com",
+  "reachable": true,
+  "resolved": "https://truthandhair.com",
+  "tools": [
+   {
+    "name": "Judge.me",
+    "category": "email",
+    "usd_mo": 15,
+    "per_seat": false
+   },
+   {
+    "name": "Shopify",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [
+    "truthandhair"
+   ],
+   "facebook": [],
+   "linkedin": [],
+   "twitter": [],
+   "emails": [],
+   "phone": false,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 2,
+  "stack_usd_mo": 15,
+  "runs_ads": false,
+  "confidence": "high",
+  "hook": "Instagram DMs, a contact form. You are running Judge.me.",
+  "has_inbox": false,
+  "fit": 40,
+  "fit_why": "no CRM or shared inbox detected",
+  "module_fit": {
+   "inbox": 49,
+   "crm": 35,
+   "hr": 0,
+   "tools": 0,
+   "email": 0,
+   "whatsapp": 0
+  },
+  "gaps": [],
+  "best_module": "inbox"
+ },
+ {
+  "domain": "houseofstudent.in",
+  "reachable": false,
+  "resolved": "",
+  "tools": [],
+  "wa_bsp": [],
+  "channels": {},
+  "channel_count": 0,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "none",
+  "hook": ""
+ },
+ {
+  "domain": "benne.in",
+  "reachable": true,
+  "resolved": "https://benne.in",
+  "tools": [
+   {
+    "name": "WooCommerce",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": true,
+   "whatsapp_numbers": [
+    "919004988941"
+   ],
+   "instagram": [
+    "benne.bombay"
+   ],
+   "facebook": [],
+   "linkedin": [],
+   "twitter": [],
+   "emails": [
+    "hello@shimowfoods.com"
+   ],
+   "phone": false,
+   "contact_form": false,
+   "live_chat": false
+  },
+  "channel_count": 3,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "medium",
+  "hook": "WhatsApp (wa.me/919004988941), Instagram DMs, hello@shimowfoods.com.",
+  "has_inbox": false,
+  "fit": 75,
+  "fit_why": "WhatsApp is a live channel; WhatsApp + Instagram both open; no CRM or shared inbox detected",
+  "module_fit": {
+   "inbox": 61,
+   "crm": 35,
+   "hr": 0,
+   "tools": 0,
+   "email": 18,
+   "whatsapp": 45
+  },
+  "gaps": [],
+  "best_module": "inbox"
+ },
+ {
+  "domain": "houseofstudent.com",
+  "reachable": true,
+  "resolved": "https://houseofstudent.com",
+  "tools": [
+   {
+    "name": "LiveChat",
+    "category": "chat",
+    "usd_mo": 288,
+    "per_seat": true
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [
+    "houseofstudent"
+   ],
+   "facebook": [
+    "hostudent"
+   ],
+   "linkedin": [
+    "house-of-student"
+   ],
+   "twitter": [],
+   "emails": [
+    "hello@houseofstudent.com"
+   ],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": true
+  },
+  "channel_count": 5,
+  "stack_usd_mo": 288,
+  "runs_ads": false,
+  "confidence": "high",
+  "hook": "Instagram DMs, LiveChat on the site, hello@houseofstudent.com. You are running LiveChat.",
+  "has_inbox": true,
+  "fit": 50,
+  "fit_why": "5 front doors",
+  "module_fit": {
+   "inbox": 60,
+   "crm": 35,
+   "hr": 0,
+   "tools": 0,
+   "email": 18,
+   "whatsapp": 0
+  },
+  "gaps": [],
+  "best_module": "inbox"
+ },
+ {
+  "domain": "suind.com",
+  "reachable": true,
+  "resolved": "https://suind.com",
+  "tools": [
+   {
+    "name": "Notion",
+    "category": "project",
+    "usd_mo": 120,
+    "per_seat": true
+   },
+   {
+    "name": "Mailchimp",
+    "category": "email",
+    "usd_mo": 20,
+    "per_seat": false
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [
+    "suindautonomous"
+   ],
+   "facebook": [],
+   "linkedin": [
+    "suind"
+   ],
+   "twitter": [],
+   "emails": [
+    "info@suind.com"
+   ],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 4,
+  "stack_usd_mo": 140,
+  "runs_ads": false,
+  "confidence": "high",
+  "hook": "Instagram DMs, info@suind.com, a contact form. You are running Mailchimp.",
+  "has_inbox": false,
+  "fit": 60,
+  "fit_why": "4 front doors; no CRM or shared inbox detected",
+  "module_fit": {
+   "inbox": 73,
+   "crm": 35,
+   "hr": 0,
+   "tools": 22,
+   "email": 18,
+   "whatsapp": 0
+  },
+  "gaps": [
+   "4 channels, no shared inbox"
+  ],
+  "best_module": "inbox"
+ },
+ {
+  "domain": "mittilabs.com",
+  "reachable": true,
+  "resolved": "https://mittilabs.com",
+  "tools": [],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [],
+   "facebook": [],
+   "linkedin": [],
+   "twitter": [],
+   "emails": [],
+   "phone": false,
+   "contact_form": false,
+   "live_chat": false
+  },
+  "channel_count": 0,
+  "stack_usd_mo": 0,
+  "runs_ads": false,
+  "confidence": "medium",
+  "hook": "",
+  "has_inbox": false,
+  "fit": 20,
+  "fit_why": "no CRM or shared inbox detected",
+  "module_fit": {
+   "inbox": 25,
+   "crm": 35,
+   "hr": 0,
+   "tools": 0,
+   "email": 0,
+   "whatsapp": 0
+  },
+  "gaps": [],
+  "best_module": "crm"
+ },
+ {
+  "domain": "solinas.in",
+  "reachable": true,
+  "resolved": "https://solinas.in",
+  "tools": [
+   {
+    "name": "Calendly",
+    "category": "booking",
+    "usd_mo": 144,
+    "per_seat": true
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WooCommerce",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": false,
+   "whatsapp_numbers": [],
+   "instagram": [
+    "solinas_integrity"
+   ],
+   "facebook": [
+    "solinasint"
+   ],
+   "linkedin": [
+    "solinasin"
+   ],
+   "twitter": [
+    "solinas_in"
+   ],
+   "emails": [],
+   "phone": false,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 2,
+  "stack_usd_mo": 144,
+  "runs_ads": false,
+  "confidence": "high",
+  "hook": "Instagram DMs, a contact form. You are running Calendly.",
+  "has_inbox": false,
+  "fit": 40,
+  "fit_why": "no CRM or shared inbox detected",
+  "module_fit": {
+   "inbox": 49,
+   "crm": 55,
+   "hr": 0,
+   "tools": 0,
+   "email": 0,
+   "whatsapp": 0
+  },
+  "gaps": [
+   "taking bookings or form fills with nowhere to put them"
+  ],
+  "best_module": "crm"
+ },
+ {
+  "domain": "kaapimachines.com",
+  "reachable": true,
+  "resolved": "https://kaapimachines.com",
+  "tools": [
+   {
+    "name": "Meta Pixel",
+    "category": "ads",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Google Ads",
+    "category": "ads",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "Google Analytics",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "MS Clarity",
+    "category": "analytics",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WooCommerce",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   },
+   {
+    "name": "WordPress",
+    "category": "platform",
+    "usd_mo": 0,
+    "per_seat": false
+   }
+  ],
+  "wa_bsp": [],
+  "channels": {
+   "whatsapp": true,
+   "whatsapp_numbers": [
+    "919731441341"
+   ],
+   "instagram": [
+    "kaapimachines"
+   ],
+   "facebook": [
+    "kaapimachine"
+   ],
+   "linkedin": [
+    "kaapi-machines"
+   ],
+   "twitter": [
+    "kaapimachine"
+   ],
+   "emails": [
+    "info@kaapimachines.com"
+   ],
+   "phone": true,
+   "contact_form": true,
+   "live_chat": false
+  },
+  "channel_count": 5,
+  "stack_usd_mo": 0,
+  "runs_ads": true,
+  "confidence": "medium",
+  "hook": "WhatsApp (wa.me/919731441341), Instagram DMs, info@kaapimachines.com.",
+  "has_inbox": false,
+  "fit": 100,
+  "fit_why": "5 front doors; WhatsApp is a live channel; WhatsApp + Instagram both open; no CRM or shared inbox detected; running paid ads into those channels",
+  "module_fit": {
+   "inbox": 85,
+   "crm": 60,
+   "hr": 0,
+   "tools": 0,
+   "email": 18,
+   "whatsapp": 70
+  },
+  "gaps": [
+   "5 channels, no shared inbox",
+   "paying for ads with no CRM behind them"
+  ],
+  "best_module": "inbox"
+ }
+]

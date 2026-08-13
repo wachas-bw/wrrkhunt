@@ -1,0 +1,89 @@
+{
+  "_note": "Batch 3 config. Finds EARLY-STAGE FOUNDERS on LinkedIn via Apify actor harvestapi/linkedin-post-search (cookieless, no LinkedIn account, zero ban risk). Forked from clienthunt/sources/intent_config.json and retuned end to end for wrrk.ai. The actor returns each post's author name AND author LinkedIn URL, which is the whole point here: batch 1 and 2 had no reliable LinkedIn profiles, so this pool is messageable from the moment it lands.",
+
+  "_thesis": "Two buckets. 'ask' = a founder explicitly asking which CRM/inbox/WhatsApp tool to use, rare and gold, reply within hours. 'early' = a founder whose post proves the company is young (just launched, first hire, pre-seed, small team). Early stage matters because there is no incumbent stack to rip out, so switching cost is zero, which is the entire reason a 2-person company will try a new workspace and a 200-person one will not.",
+
+  "apify": {
+    "actor": "harvestapi/linkedin-post-search",
+    "token_file": "jobhunt/.apify_token",
+    "posted_limit": "month",
+    "max_posts_per_query": 20,
+    "sort_by": "date",
+    "_cost": "~$0.24 per full run (10 queries x 20 posts). FREE plan gives $5/month."
+  },
+
+  "linkedin_queries_ask": [
+    "which CRM should we use",
+    "looking for a CRM for our startup",
+    "hubspot is too expensive",
+    "need a shared inbox for our team",
+    "how do you manage WhatsApp enquiries",
+    "we are managing leads in a spreadsheet",
+    "recommendations for a small business CRM",
+    "too many tools for our small team"
+  ],
+
+  "linkedin_queries_early": [
+    "we just launched our startup",
+    "hiring our first employee startup",
+    "just raised our pre-seed round",
+    "building our MVP first customers",
+    "two founders and a laptop",
+    "our first paying customer"
+  ],
+
+  "twitter_queries": [
+    "which crm should i use startup",
+    "hubspot pricing is insane",
+    "managing leads in a spreadsheet",
+    "need a shared inbox for support",
+    "too many saas subscriptions startup",
+    "just launched my startup first customers"
+  ],
+
+  "ops_keywords": [
+    "crm", "pipeline", "shared inbox", "unified inbox", "helpdesk", "ticket",
+    "whatsapp", "instagram dm", "dms", "leads", "lead management", "enquiries",
+    "spreadsheet", "google sheet", "excel", "notion", "airtable",
+    "hubspot", "zoho", "salesforce", "freshworks", "pipedrive", "gohighlevel",
+    "intercom", "zendesk", "freshdesk", "wati", "aisensy", "interakt",
+    "slack", "asana", "clickup", "trello", "monday.com",
+    "attendance", "payroll", "onboarding", "invoice", "timesheet",
+    "saas subscription", "our stack", "tech stack", "too many tools", "tool sprawl"
+  ],
+
+  "early_stage_tells": [
+    "just launched", "we launched", "launching soon", "went live", "shipped our",
+    "first customer", "first paying customer", "first client", "first hire",
+    "first employee", "hiring our first", "pre-seed", "preseed", "angel round",
+    "just raised", "bootstrapped", "bootstrapping", "solo founder", "two of us",
+    "team of 3", "team of 4", "team of 5", "early stage", "day one", "mvp",
+    "building in public", "0 to 1", "zero to one", "founding team", "we are 3",
+    "started my company", "started our company", "new startup"
+  ],
+
+  "buyer_phrases": [
+    "looking for", "need help", "need a", "need someone", "we need", "what do you use",
+    "recommend", "recommendation", "any recommendations", "suggestions for", "anyone know",
+    "can anyone", "trying to find", "help us", "seeking", "who can help", "which one",
+    "know a good", "any advice", "how do you handle", "how do you manage", "thoughts on"
+  ],
+
+  "promo_phrases": [
+    "we offer", "we help", "we helped", "our agency", "we specialize", "book a call",
+    "we provide", "our team helps", "hire us", "work with us", "our services",
+    "dm us", "link in bio", "book a free", "our clients", "case study", "portfolio",
+    "we built a crm", "our crm", "our platform", "our software", "our tool",
+    "try our", "sign up for", "free trial", "launching our saas", "check out our",
+    "i help founders", "i help startups", "i help businesses", "join the waitlist",
+    "we are hiring for our client", "webinar", "register now", "limited seats"
+  ],
+
+  "_vendor_authors_note": "CRM and WhatsApp vendors post about CRM constantly and are the single biggest noise source in this pool. intent_linkedin.py drops them by author name AND by promo phrase.",
+  "vendor_author_tokens": [
+    "crm", "saas", "software", "technologies", "solutions", "systems", "labs",
+    "automation", "consulting", "consultancy", "agency", "digital", "media",
+    "infotech", "technology", "it services", "cloud", "apps", "hubspot", "zoho",
+    "salesforce", "freshworks", "wati", "aisensy", "interakt", "gohighlevel"
+  ]
+}

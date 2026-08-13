@@ -1,0 +1,26 @@
+{
+  "_comment": "Pool 2 — Pune digital agencies, 30-70 staff. Sourced 2026-08-11 from published agency directories (soravjain.com, builtinpune.in) and audited with stack_detect.py. Deliberately excludes Merkle, Techmagnate, SRV Media, Amura and Magneto: all 120-16,000 staff, which is the wrong motion for a $14.99/seat product.",
+  "_why_this_pool": "An agency at this size is the highest-LTV prospect wrrk has. It needs the product twice over: internally for 30-70 staff (attendance, leave, payroll, tasks, timesheets) and commercially for client work (proposals, contracts, invoices, one inbox per client). It is also the only pool that can resell, which is exactly who GoHighLevel takes and wrrk's own battlecard at new/src/app/vs/data.ts targets back.",
+  "_local_advantage": "All Pune. Wachas is Pune-based, so 'I am ten minutes away, happy to come by' is available here and is worth more than any cold-email line.",
+  "advertisers": [
+    {"name": "BrandLoom", "market": "IN", "city": "Pune", "vertical": "agency", "domain": "brandloom.com", "staff": "", "signal": "pays for Interakt (WhatsApp only), runs ads, no CRM"},
+    {"name": "Bright Brain", "market": "IN", "city": "Pune", "vertical": "agency", "domain": "brightbraintech.com", "staff": "45+", "signal": "5 channels no shared inbox, ads with no CRM, hr@ and sales@ published"},
+    {"name": "Skovian Ventures", "market": "IN", "city": "Pune", "vertical": "agency", "domain": "skovian.com", "staff": "45-50", "signal": "careers@ sales@ support@ published, no helpdesk, runs HubSpot"},
+    {"name": "Dreamworth Solutions", "market": "IN", "city": "Pune", "vertical": "agency", "domain": "dreamworth.in", "staff": "50+", "signal": "5 channels no shared inbox, offices in 6 cities"},
+    {"name": "I Knowledge Factory", "market": "IN", "city": "Pune", "vertical": "agency", "domain": "ikf.co.in", "staff": "60+", "signal": "5 channels no shared inbox, est. 2000"},
+    {"name": "Ad2Brand Media", "market": "IN", "city": "Pune", "vertical": "agency", "domain": "ad2brand.com", "staff": "55+", "signal": "4 channels no shared inbox, offices in Pune Mumbai Dubai USA"},
+    {"name": "echoVME Digital", "market": "IN", "city": "Pune", "vertical": "agency", "domain": "echovme.in", "staff": "70+", "signal": "ads with no CRM, 4 channels no shared inbox"},
+    {"name": "Osumare Marketing", "market": "IN", "city": "Pune", "vertical": "agency", "domain": "osumare.com", "staff": "50+", "signal": "6 front doors, Tawk.to only"},
+    {"name": "Xebec Communications", "market": "IN", "city": "Pune", "vertical": "agency", "domain": "xebecindia.com", "staff": "", "signal": "ads with no CRM, hr@ published, Tawk.to only"},
+    {"name": "Optimized Infotech", "market": "IN", "city": "Pune", "vertical": "agency", "domain": "optimizedinfotech.com", "staff": "", "signal": "5 channels no shared inbox"},
+    {"name": "Brainmine Web Solutions", "market": "IN", "city": "Pune", "vertical": "agency", "domain": "brainminetech.com", "staff": "", "signal": "3 channels no shared inbox"},
+    {"name": "Tempest Advertising", "market": "IN", "city": "Pune", "vertical": "agency", "domain": "tempestadvertising.com", "staff": "", "signal": "runs ads, no CRM"},
+    {"name": "Brandup", "market": "IN", "city": "Pune", "vertical": "agency", "domain": "brandup.in", "staff": "", "signal": "runs Google Ads, no CRM"},
+    {"name": "Aarna Systems", "market": "IN", "city": "Pune", "vertical": "agency", "domain": "aarnasystems.com", "staff": "30-60", "signal": "runs ads, no CRM"},
+    {"name": "Yashus Digital Marketing", "market": "IN", "city": "Pune", "vertical": "agency", "domain": "yashus.in", "staff": "", "signal": "4 channels no shared inbox"},
+    {"name": "BLeap", "market": "IN", "city": "Pune", "vertical": "agency", "domain": "bleap.in", "staff": "", "signal": "runs HubSpot, two separate brand domains"},
+    {"name": "Talkd", "market": "IN", "city": "Pune", "vertical": "agency", "domain": "talkd.co", "staff": "", "signal": "thin site, low confidence"},
+    {"name": "SocialChamps", "market": "IN", "city": "Pune", "vertical": "agency", "domain": "socialchamps.com", "staff": "45", "signal": "thin detection, JS shell, re-check in browser"},
+    {"name": "Olio Creative", "market": "IN", "city": "Pune", "vertical": "agency", "domain": "oliosolutions.com", "staff": "60+", "signal": "thin detection"}
+  ]
+}
