@@ -9,10 +9,14 @@
 .env.*
 *.pem
 *.key
+CLAUDE.local.md
 
 # Generated emails addressed to real people. Rebuildable from outreach/batch*.json,
 # so committing them only duplicates third-party personal data.
 outreach/eml/
+
+# Local contact exports contain third-party personal/business contact data.
+outputs/email_leads_*/
 
 # Raw scrape dumps: large, re-derivable, and full of unfiltered third-party content.
 data/*_raw.json
@@ -22,6 +26,16 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
+.pytest_cache/
+.coverage
+
+# Local automation state belongs under ~/Library/Application Support/wrrkhunt.
+# These patterns are a second line of defence if WRRKHUNT_HOME is pointed here.
+*.sqlite3
+*.sqlite3-shm
+*.sqlite3-wal
+browser-profile/
+automation-logs/
 
 # OS
 .DS_Store

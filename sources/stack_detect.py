@@ -26,18 +26,23 @@ those domains should be re-checked in a real browser before being quoted in an e
 from __future__ import annotations
 
 import concurrent.futures as cf
+import html as html_module
 import json
 import os
 import re
-import ssl
 import sys
 import urllib.error
 import urllib.request
+from datetime import UTC, datetime
 from typing import Any
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 OUT = os.path.join(ROOT, "data", "stacks.json")
+if ROOT not in sys.path:
+    sys.path.insert(0, ROOT)
+
+from prospecting.phones import extract_phone_contacts, extract_uae_locations
 
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36")
@@ -173,6 +178,16 @@ SIGNATURES: list[tuple[str, str, list[str], float, bool]] = [
                                     r"generator[\"'][^>]*WordPress"],                0, False),
 ]
 
+# Scan each fetched page once. The earlier implementation searched every signature over
+# every page separately, which could spend minutes on a JavaScript-heavy 1.5 MB response.
+_SIGNATURE_MASTER = re.compile(
+    "|".join(
+        f"(?P<S{index}>(?:{'|'.join(patterns)}))"
+        for index, (_, _, patterns, _, _) in enumerate(SIGNATURES)
+    ),
+    re.I,
+)
+
 # customer-reachable channels (the "front doors" count)
 WA_RE = re.compile(r"(?:wa\.me/|api\.whatsapp\.com/send|web\.whatsapp\.com/send|whatsapp://send)"
                    r"[^\"'\s<>]*", re.I)
@@ -184,6 +199,23 @@ X_RE = re.compile(r"(?:twitter|x)\.com/([A-Za-z0-9_]{2,20})", re.I)
 MAILTO_RE = re.compile(r"mailto:([a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,})", re.I)
 TEL_RE = re.compile(r"tel:\+?([0-9\-\s()]{7,20})")
 FORM_RE = re.compile(r"<form[^>]*>", re.I)
+TITLE_RE = re.compile(r"<title[^>]*>(.*?)</title>", re.I | re.S)
+DESCRIPTION_RE = re.compile(
+    r"<meta[^>]+(?:name|property)=[\"'](?:description|og:description)[\"'][^>]+content=[\"'](.*?)[\"']",
+    re.I | re.S,
+)
+DESCRIPTION_RE_REVERSED = re.compile(
+    r"<meta[^>]+content=[\"'](.*?)[\"'][^>]+(?:name|property)=[\"'](?:description|og:description)[\"']",
+    re.I | re.S,
+)
+SITE_NAME_RE = re.compile(
+    r"<meta[^>]+property=[\"']og:site_name[\"'][^>]+content=[\"'](.*?)[\"']",
+    re.I | re.S,
+)
+SITE_NAME_RE_REVERSED = re.compile(
+    r"<meta[^>]+content=[\"'](.*?)[\"'][^>]+property=[\"']og:site_name[\"']",
+    re.I | re.S,
+)
 
 SOCIAL_JUNK = {"sharer", "share", "intent", "profile.php", "plugins", "tr", "dialog",
                "home", "login", "p", "explore", "reel", "reels", "hashtag", "policies",
@@ -198,23 +230,26 @@ def _norm_domain(raw: str) -> str:
 
 
 def _fetch(url: str) -> str:
-    ctx = ssl.create_default_context()
-    ctx.check_hostname = False
-    ctx.verify_mode = ssl.CERT_NONE
+    """Fetch a public page with urllib's normal certificate/hostname verification."""
     req = urllib.request.Request(url, headers={
         "User-Agent": UA,
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
         "Accept-Language": "en-US,en;q=0.9",
     })
     try:
-        with urllib.request.urlopen(req, timeout=TIMEOUT, context=ctx) as r:
-            return r.read(1_500_000).decode("utf-8", "replace")
+        # A certificate failure is an audit failure, never permission to retry insecurely.
+        with urllib.request.urlopen(req, timeout=TIMEOUT) as response:
+            return response.read(750_000).decode("utf-8", "replace")
     except Exception:
         return ""
 
 
-def _gather_html(domain: str) -> tuple[str, str]:
-    """Return (combined_html, resolved_base). Tries https then http, www then bare."""
+def _gather_html(domain: str) -> tuple[str, str, list[tuple[str, str]]]:
+    """Return (combined_html, resolved_base, fetched pages).
+
+    HTTPS remains certificate-verified. HTTP is tried only as an explicitly different
+    public endpoint and the resolved URL is preserved as evidence.
+    """
     bases = [f"https://{domain}", f"https://www.{domain}",
              f"http://{domain}", f"http://www.{domain}"]
     base = ""
@@ -225,16 +260,26 @@ def _gather_html(domain: str) -> tuple[str, str]:
             base = b
             break
     if not home:
-        return "", ""
-    blobs = [home]
+        return "", "", []
+    pages: list[tuple[str, str]] = [(base, home)]
     with cf.ThreadPoolExecutor(max_workers=4) as ex:
         futs = {ex.submit(_fetch, base + p): p for p in PATHS[1:]}
         for f in cf.as_completed(futs):
             try:
-                blobs.append(f.result())
+                body = f.result()
+                if body:
+                    pages.append((base + futs[f], body))
             except Exception:
                 pass
-    return "\n".join(blobs), base
+    return "\n".join(body for _, body in pages), base, pages
+
+
+def _excerpt(html: str, match: re.Match[str], limit: int = 260) -> str:
+    start = max(0, match.start() - 100)
+    end = min(len(html), match.end() + 140)
+    raw = re.sub(r"<[^>]+>", " ", html[start:end])
+    raw = re.sub(r"\s+", " ", raw).strip()
+    return raw[:limit]
 
 
 def _clean_socials(matches: list[str]) -> list[str]:
@@ -248,30 +293,74 @@ def _clean_socials(matches: list[str]) -> list[str]:
     return out[:3]
 
 
-def detect(domain: str, seats: int = 5) -> dict[str, Any]:
+def _site_summary(home: str) -> dict[str, str]:
+    def clean(value: str) -> str:
+        value = html_module.unescape(value or "")
+        return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", value)).strip()[:500]
+
+    title = TITLE_RE.search(home or "")
+    description = DESCRIPTION_RE.search(home or "") or DESCRIPTION_RE_REVERSED.search(home or "")
+    site_name = SITE_NAME_RE.search(home or "") or SITE_NAME_RE_REVERSED.search(home or "")
+    return {
+        "title": clean(title.group(1)) if title else "",
+        "description": clean(description.group(1)) if description else "",
+        "site_name": clean(site_name.group(1)) if site_name else "",
+    }
+
+
+def detect(domain: str, seats: int = 5, region: str | None = None) -> dict[str, Any]:
     domain = _norm_domain(domain)
-    html, base = _gather_html(domain)
+    html, base, pages = _gather_html(domain)
+    detected_at = datetime.now(UTC).replace(microsecond=0).isoformat()
     rec: dict[str, Any] = {
         "domain": domain, "reachable": bool(html), "resolved": base,
         "tools": [], "wa_bsp": [], "channels": {}, "channel_count": 0,
         "stack_usd_mo": 0, "runs_ads": False, "confidence": "none", "hook": "",
+        "detected_at": detected_at, "evidence": [], "phone_contacts": [],
+        "locations": [],
     }
     if not html:
         return rec
+    rec["site_summary"] = _site_summary(pages[0][1] if pages else "")
+
+    signature_hits: dict[int, tuple[str, str, re.Match[str]]] = {}
+    for page_url, page_html in pages:
+        for match in _SIGNATURE_MASTER.finditer(page_html):
+            if not match.lastgroup:
+                continue
+            index = int(match.lastgroup[1:])
+            signature_hits.setdefault(index, (page_url, page_html, match))
 
     found: list[dict[str, Any]] = []
-    for label, cat, pats, price, per_seat in SIGNATURES:
-        if any(re.search(p, html, re.I) for p in pats):
-            cost = round(price * seats) if per_seat else price
-            found.append({"name": label, "category": cat,
-                          "usd_mo": cost, "per_seat": per_seat})
+    for index, (label, cat, _patterns, price, per_seat) in enumerate(SIGNATURES):
+        hit = signature_hits.get(index)
+        if not hit:
+            continue
+        hit_url, hit_html, hit_match = hit
+        cost = round(price * seats) if per_seat else price
+        evidence = {
+            "kind": "stack_detection", "source_url": hit_url,
+            "excerpt": _excerpt(hit_html, hit_match) or f"Public page references {label}.",
+            "observed_value": label, "detected_at": detected_at,
+        }
+        found.append({"name": label, "category": cat, "usd_mo": cost,
+                      "per_seat": per_seat, "source_url": hit_url,
+                      "evidence_excerpt": evidence["excerpt"], "detected_at": detected_at})
+        rec["evidence"].append(evidence)
     rec["tools"] = found
     rec["wa_bsp"] = [t["name"] for t in found if t["category"] == "wa_bsp"]
     rec["runs_ads"] = any(t["category"] == "ads" for t in found)
     rec["stack_usd_mo"] = sum(t["usd_mo"] for t in found)
 
+    phone_contacts = extract_phone_contacts(pages, region=region)
+    rec["phone_contacts"] = phone_contacts
+    rec["locations"] = extract_uae_locations(pages) if region == "AE" else []
     wa_links = WA_RE.findall(html)
-    wa_nums = sorted(set(WA_NUM_RE.findall(html)))
+    wa_nums = [item["e164"] for item in phone_contacts if item.get("is_whatsapp")]
+    if not wa_nums:
+        # Preserve the legacy field for non-regional callers without treating an
+        # unvalidated digit run as a structured contact.
+        wa_nums = sorted(set(WA_NUM_RE.findall(html)))
     emails = sorted({e.lower() for e in MAILTO_RE.findall(html)
                      if not e.lower().endswith((".png", ".jpg", ".svg"))})
     ch = {
@@ -282,7 +371,8 @@ def detect(domain: str, seats: int = 5) -> dict[str, Any]:
         "linkedin": _clean_socials(LI_RE.findall(html)),
         "twitter": _clean_socials(X_RE.findall(html)),
         "emails": emails[:5],
-        "phone": bool(TEL_RE.search(html)),
+        "phone": bool(phone_contacts) or bool(TEL_RE.search(html)),
+        "phone_numbers": [item["e164"] for item in phone_contacts[:5]],
         "contact_form": bool(FORM_RE.search(html)),
         "live_chat": any(t["category"] in ("chat", "support") for t in found),
     }
@@ -291,6 +381,30 @@ def detect(domain: str, seats: int = 5) -> dict[str, Any]:
         ch["whatsapp"], bool(ch["instagram"]), bool(ch["emails"]),
         ch["phone"], ch["contact_form"], ch["live_chat"],
     ])
+    for item in phone_contacts:
+        rec["evidence"].append({
+            "kind": "business_phone",
+            "source_url": item["source_url"],
+            "excerpt": item["evidence_excerpt"],
+            "observed_value": item["e164"],
+            "detected_at": item["observed_at"],
+            "confidence": item["confidence"],
+            "metadata": {
+                "number_type": item["number_type"],
+                "contact_type": item["contact_type"],
+                "is_whatsapp": item["is_whatsapp"],
+                "source_type": item["source_type"],
+            },
+        })
+    for item in rec["locations"]:
+        rec["evidence"].append({
+            "kind": "uae_location",
+            "source_url": item["source_url"],
+            "excerpt": item["evidence_excerpt"],
+            "observed_value": f'{item["city"]}, {item["emirate"]}',
+            "detected_at": item["observed_at"],
+            "confidence": "high",
+        })
 
     paid = [t for t in found if t["category"] not in ("analytics", "platform", "ads")]
     if paid:
@@ -306,6 +420,13 @@ def detect(domain: str, seats: int = 5) -> dict[str, Any]:
     rec["module_fit"], rec["gaps"] = _module_fit(rec)
     rec["best_module"] = max(rec["module_fit"], key=rec["module_fit"].get)
     rec["hook"] = _hook(rec)
+    if rec["hook"]:
+        rec["evidence"].append({
+            "kind": "channel_summary", "source_url": base, "excerpt": rec["hook"],
+            "observed_value": str(rec["channel_count"]), "detected_at": detected_at,
+        })
+    for item in rec["evidence"]:
+        item.setdefault("confidence", rec["confidence"])
     return rec
 
 
@@ -327,7 +448,7 @@ def _module_fit(rec: dict[str, Any]) -> tuple[dict[str, int], list[str]]:
     doors = rec["channel_count"]
     m["inbox"] = min(doors * 12, 60) + (25 if not rec["has_inbox"] else 0)
     if doors >= 4 and not rec["has_inbox"]:
-        gaps.append(f"{doors} channels, no shared inbox")
+        gaps.append(f"{doors} channels, shared inbox not detected")
 
     # crm: they sell (ads, booking, forms) but nothing stores the pipeline
     m["crm"] = 0
@@ -335,10 +456,10 @@ def _module_fit(rec: dict[str, Any]) -> tuple[dict[str, int], list[str]]:
         m["crm"] += 35
         if rec["runs_ads"]:
             m["crm"] += 25
-            gaps.append("paying for ads with no CRM behind them")
+            gaps.append("paid-ad signals present; CRM not detected")
         if "booking" in cats or "forms" in cats:
             m["crm"] += 20
-            gaps.append("taking bookings or form fills with nowhere to put them")
+            gaps.append("booking or form signals present; CRM not detected")
 
     # people/HR: an ATS or careers page means headcount is moving
     m["hr"] = 0
@@ -347,7 +468,7 @@ def _module_fit(rec: dict[str, Any]) -> tuple[dict[str, int], list[str]]:
         gaps.append(f"hiring through {', '.join(n for n in names if n in _ATS_NAMES)}")
         if "hr" not in cats:
             m["hr"] += 30
-            gaps.append("hiring with no HR system for onboarding, leave or payroll")
+            gaps.append("hiring signal present; HR system not detected")
 
     # tools: invoicing/contracts/projects scattered across separate vendors
     tool_cats = cats & {"finance", "esign", "project", "forms"}
@@ -361,7 +482,7 @@ def _module_fit(rec: dict[str, Any]) -> tuple[dict[str, int], list[str]]:
         m["email"] = min(len(ch["emails"]) * 18, 70)
         if "support" not in cats and len(ch["emails"]) >= 3:
             m["email"] += 25
-            gaps.append(f"{len(ch['emails'])} published inboxes, no helpdesk")
+            gaps.append(f"{len(ch['emails'])} published inboxes; helpdesk not detected")
 
     # whatsapp: the batch 1 thesis, kept so one score set covers both batches
     m["whatsapp"] = (45 if ch.get("whatsapp") else 0) + (25 if rec["runs_ads"] and
@@ -395,10 +516,10 @@ def _fit(rec: dict[str, Any]) -> tuple[int, str]:
 
     if not rec.get("has_inbox"):
         score += 20
-        why.append("no CRM or shared inbox detected")
+        why.append("CRM or shared inbox not detected")
     if rec["wa_bsp"]:
         score += 15
-        why.append(f"pays for {rec['wa_bsp'][0]} (WhatsApp only, no CRM behind it)")
+        why.append(f"{rec['wa_bsp'][0]} detected; CRM behind it not detected")
     if rec["runs_ads"]:
         score += 10
         why.append("running paid ads into those channels")

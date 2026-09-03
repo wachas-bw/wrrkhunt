@@ -4,10 +4,8 @@
 Order matters, and it is deliberate: cheapest and most reliable evidence first.
 
   1. published inboxes  — mailto: on the site (already ground truth, no guessing)
-  2. team/about pages   — a human name next to a founder/director/CEO title
-  3. pattern derivation — only once we have BOTH a real name and a real domain, and
-                          only using a pattern the site itself demonstrates
-  4. MX sanity check    — proves the domain can receive mail at all
+  2. team/about pages   — candidate names for human review, never email synthesis
+  3. MX sanity check    — proves each visibly published address domain can receive mail
 
 It deliberately does NOT invent addresses from a name alone. An unverified guess that
 bounces costs sender reputation, and reputation is the scarce resource here: see
@@ -23,15 +21,20 @@ import concurrent.futures as cf
 import json
 import os
 import re
-import ssl
 import subprocess
 import sys
+import urllib.parse
 import urllib.request
+from datetime import UTC, datetime
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 STACKS = os.path.join(ROOT, "data", "stacks.json")
 OUT = os.path.join(ROOT, "data", "contacts.json")
+if ROOT not in sys.path:
+    sys.path.insert(0, ROOT)
+
+from prospecting.phones import extract_phone_contacts
 
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36")
@@ -84,12 +87,10 @@ def _looks_like_person(name: str) -> bool:
 
 
 def _fetch(url: str) -> str:
-    ctx = ssl.create_default_context()
-    ctx.check_hostname = False
-    ctx.verify_mode = ssl.CERT_NONE
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     try:
-        with urllib.request.urlopen(req, timeout=12, context=ctx) as r:
+        # Keep normal certificate and hostname verification enabled.
+        with urllib.request.urlopen(req, timeout=12) as r:
             return r.read(900_000).decode("utf-8", "replace")
     except Exception:
         return ""
@@ -109,7 +110,7 @@ def _mx(domain: str) -> bool:
         return False
 
 
-def _fetch_all(base: str) -> str:
+def _fetch_all(base: str) -> list[tuple[str, str]]:
     """Fetch the candidate pages one at a time.
 
     Deliberately sequential. An inner ThreadPoolExecutor here nested inside main()'s
@@ -118,7 +119,49 @@ def _fetch_all(base: str) -> str:
     emails for montdorinterior.com, a domain that in fact publishes five addresses and
     has Google + Hostinger MX. Parallelism belongs at one level only, in main().
     """
-    return "\n".join(_fetch(base + p) for p in PATHS)
+    pages = []
+    for path in PATHS:
+        url = base + path
+        body = _fetch(url)
+        if body:
+            pages.append((url, body))
+    return pages
+
+
+def _published_emails(url: str, html: str) -> list[dict]:
+    """Extract only addresses the business visibly publishes on its own page.
+
+    Script/style payloads are excluded. A mailto link is treated as visible contact
+    evidence even when its anchor text says only "Email us".
+    """
+    visible = _strip(html)
+    public_markup = re.sub(
+        r"<(script|style|noscript)[^>]*>.*?</\1>", " ", html, flags=re.S | re.I)
+    mailtos = re.findall(
+        r"<a\b[^>]*\bhref\s*=\s*(?:[\"']\s*)?mailto:([^?\"'<>\s]+)",
+        public_markup, re.I,
+    )
+    candidates = set(EMAIL_RE.findall(visible)) | set(mailtos)
+    out = []
+    for candidate in sorted(candidates):
+        # Some CMS editors accidentally leave URL-encoded whitespace in a
+        # mailto href (for example, mailto:%20info@example.com). Decode the
+        # href value before validation; never pass the encoded bytes to SMTP.
+        email = urllib.parse.unquote(candidate).strip().lower()
+        if not EMAIL_RE.fullmatch(email):
+            continue
+        if email.endswith((".png", ".jpg", ".jpeg", ".svg", ".gif", ".webp")):
+            continue
+        if "sentry" in email or "example." in email or "@2x" in email:
+            continue
+        at = visible.lower().find(email)
+        if at >= 0:
+            excerpt = visible[max(0, at - 90):at + len(email) + 100]
+        else:
+            excerpt = f"The business publishes a mailto contact for {email}."
+        out.append({"email": email, "source_url": url,
+                    "excerpt": re.sub(r"\s+", " ", excerpt).strip()[:320]})
+    return out
 
 
 def _people(text: str) -> list[dict]:
@@ -154,10 +197,12 @@ def _pattern(emails: list[str], domain: str) -> str:
     return ""
 
 
-def enrich(domain: str) -> dict:
+def enrich(domain: str, region: str | None = None) -> dict:
     domain = re.sub(r"^https?://|/.*$", "", domain.strip().lower())
     rec = {"domain": domain, "emails": [], "role_emails": [], "personal_emails": [],
-           "people": [], "pattern": "", "mx": False, "free_mail_business": False}
+           "people": [], "pattern": "", "mx": False, "mx_by_domain": {},
+           "free_mail_business": False, "email_evidence": [], "phone_contacts": [],
+           "detected_at": datetime.now(UTC).replace(microsecond=0).isoformat()}
 
     base = ""
     for b in (f"https://{domain}", f"https://www.{domain}", f"http://{domain}"):
@@ -167,25 +212,31 @@ def enrich(domain: str) -> dict:
     if not base:
         return rec
 
-    html = _fetch_all(base)
+    pages = _fetch_all(base)
+    rec["phone_contacts"] = extract_phone_contacts(pages, region=region)
+    html = "\n".join(body for _, body in pages)
     text = _strip(html)
 
-    emails = sorted({e.lower() for e in EMAIL_RE.findall(html)
-                     if not e.lower().endswith((".png", ".jpg", ".jpeg", ".svg", ".gif", ".webp"))
-                     and "sentry" not in e.lower() and "example." not in e.lower()
-                     and "@2x" not in e.lower()})
+    evidence_by_email = {}
+    for url, body in pages:
+        for item in _published_emails(url, body):
+            evidence_by_email.setdefault(item["email"], item)
+    emails = sorted(evidence_by_email)
     own = [e for e in emails if e.split("@")[-1].endswith(domain.replace("www.", ""))]
     free = [e for e in emails if e.split("@")[-1] in FREE_MAIL]
 
     generic = ("info", "hello", "contact", "sales", "admin", "support", "enquiry",
                "enquiries", "office", "care", "help", "team", "marketing")
     rec["emails"] = emails[:12]
+    rec["email_evidence"] = [evidence_by_email[e] for e in rec["emails"]]
     rec["role_emails"] = [e for e in own if e.split("@")[0] in generic]
     rec["personal_emails"] = [e for e in own if e.split("@")[0] not in generic]
     rec["free_mail_business"] = bool(free and not own)
     rec["people"] = _people(text)
     rec["pattern"] = _pattern(own, domain)
-    rec["mx"] = _mx(domain)
+    mail_domains = {e.rsplit("@", 1)[1] for e in emails} | {domain}
+    rec["mx_by_domain"] = {mail_domain: _mx(mail_domain) for mail_domain in sorted(mail_domains)}
+    rec["mx"] = rec["mx_by_domain"].get(domain, False)
     return rec
 
 

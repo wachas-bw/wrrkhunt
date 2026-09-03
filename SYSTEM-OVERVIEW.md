@@ -1,5 +1,10 @@
 # wrrkhunt — evidence-first prospecting for wrrk.ai
 
+> **Historical architecture snapshot:** this file describes the original script-based
+> campaign and contains dated counts and statuses. The canonical current guide is
+> [`TEAM-PROSPECTING-GUIDE.md`](TEAM-PROSPECTING-GUIDE.md); current setup and commands are
+> in [`AUTOMATION.md`](AUTOMATION.md). Do not infer live state from this file.
+
 ## The thesis
 
 Every competitor emails "we are an AI CRM." Nobody replies, because the claim is about

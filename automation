@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+"""wrrkhunt prospecting automation command.
+
+If the repository virtual environment exists, always use it. This keeps interactive
+commands and launchd on the same pinned runtime even when the shell is not activated.
+"""
+import os
+import sys
+from pathlib import Path
+
+VENV_PYTHON = Path(__file__).resolve().parent / ".venv" / "bin" / "python"
+VENV_ROOT = VENV_PYTHON.parent.parent
+if VENV_PYTHON.exists() and Path(sys.prefix) != VENV_ROOT:
+    os.execv(str(VENV_PYTHON), [str(VENV_PYTHON), "-m", "prospecting", *sys.argv[1:]])
+
+from prospecting.cli import main
+
+
+if __name__ == "__main__":
+    main()

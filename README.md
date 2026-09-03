@@ -4,11 +4,23 @@ Evidence-first prospecting for **wrrk.ai**. Finds companies that demonstrably ha
 problem we solve, and proves it to them with evidence they can verify on their own
 website in ten seconds.
 
-> **Private repo. It contains real contact data for ~90 people at ~30 companies.**
-> Do not make it public and do not share outside the team. See [Data and privacy](#data-and-privacy).
+> **Privacy warning:** the GitHub repository is currently public, while historical tracked
+> `data/` and `outreach/` files contain real business contacts and campaign material. Do
+> not add new lead exports or credentials. Make the repository private and clean sensitive
+> history before sharing beyond the authorized team. See [Data and privacy](#data-and-privacy).
 
-**Start here:** [`wrrk-prospecting-playbook.pdf`](wrrk-prospecting-playbook.pdf), 7 pages,
-the whole method. Read that before touching the code.
+**Team start here:** [`TEAM-PROSPECTING-GUIDE.md`](TEAM-PROSPECTING-GUIDE.md) is the
+canonical method catalog and operating handbook. [`AGENTS.md`](AGENTS.md) gives Codex and
+other coding agents persistent repository context; [`CLAUDE.md`](CLAUDE.md) imports the
+same context for Claude Code. Use [`TEAM-START-PROMPT.md`](TEAM-START-PROMPT.md) to onboard
+a new teammate or agent session.
+
+The original seven-page [`wrrk-prospecting-playbook.pdf`](wrrk-prospecting-playbook.pdf)
+is useful historical background, but the Markdown guide and current code are authoritative.
+
+**New automation:** [`AUTOMATION.md`](AUTOMATION.md) documents the local SQLite pipeline,
+approval dashboard, Codex copy engine, Gmail delivery, manual LinkedIn review, optional
+official Comments API delivery, and launchd jobs.
 
 ---
 
@@ -33,7 +45,7 @@ also why `data/suppression.json` exists.
 
 ---
 
-## Quick start
+## Legacy scripts quick start
 
 ```bash
 # 1. Audit any list of domains (free, no API keys)
@@ -49,7 +61,26 @@ python3 outreach/draft.py --min-fit 50
 python3 outreach/gmail_drafts.py --dry-run
 ```
 
-Python 3.9+. **No dependencies**, standard library only.
+Python 3.9+. These original scripts remain standard-library-only. The approval-gated
+automation has its own dependencies and setup in [`AUTOMATION.md`](AUTOMATION.md).
+
+## Approval-gated automation quick start
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+./automation init
+./automation import-legacy
+./automation discover --markets IN,AE,SG,GB,US --mix
+./automation prepare
+./automation serve
+```
+
+Both channels start paused. `prepare` creates review items; it does not send or post.
+Gmail, the postal address, same-day approval, and an explicit dashboard release are
+separate email gates. LinkedIn drafting is automated; the dashboard can open the exact
+post in your normal browser and copy the immutable approved comment in one user click.
+You verify the post, paste, and click Post yourself; wrrkhunt never controls LinkedIn.
 
 ---
 
@@ -77,12 +108,13 @@ q="whatsapp" interior design   -> 17 / 27
 Recipe and extractor: [`sources/meta_ads_extract.js`](sources/meta_ads_extract.js).
 It runs inside a browser because the Ad Library returns 403 to plain HTTP clients.
 
-### The one that failed
+### Historical Apify result
 
-Apify LinkedIn post search returned 180 posts and **zero** usable leads. LinkedIn post
-search is dominated by engagement-optimised content and the genuine-ask base rate is ~1%.
-That is a base-rate problem, not a tuning problem. Full breakdown in
-`data/pool3_startups.json` under `_apify_result`. **Do not repeat it.**
+The original Apify LinkedIn experiment returned 180 posts and **zero** usable leads.
+That remains a warning about the source's low base rate. Safe mode no longer runs this
+actor or automated LinkedIn-post searches. A user copies selected sub-48-hour posts from
+their normal browser into the local dashboard; Codex can then draft against the immutable
+text hash. It never lowers the threshold to make the comment quota.
 
 ---
 
@@ -90,7 +122,7 @@ That is a base-rate problem, not a tuning problem. Full breakdown in
 
 ```
 sources/
-  stack_detect.py       audits a domain: ~55 vendors, front-door count, per-module fit
+  stack_detect.py       audits a domain: 83 vendor signatures, front doors, per-module fit
   meta_ads_extract.js   Meta Ad Library harvester (paste into a browser)
   intent_linkedin.py    Apify LinkedIn harvester (built, measured, low yield)
   intent_config.json
@@ -119,7 +151,8 @@ scale, a check does. Each rule is a failure someone already paid for.
 
 1. **No em dashes, en dashes, middle dots.** Reads as AI-generated.
 2. **60 to 95 words of pitch.** Measured on the body, excluding greeting and signature.
-3. **No links in email one.** Hurts deliverability on a cold first touch.
+3. **Only the configured booking URL in email one.** The current booking-note style
+   requires that URL exactly once and blocks every additional or unapproved link.
 4. **A question mark.** A binary ask beats a soft "let me know."
 5. **Never greet by a scraped name.** Derive the greeting from the address you are
    sending to. Fall back to "Hi there" whenever it is not clearly a person.
@@ -160,29 +193,34 @@ detector. Both are estimates. **Name the tools, not the number.**
 An earlier campaign automated sourcing and drafting perfectly and left sending as a vague
 intention. **Twelve warm, fully drafted leads went cold unsent over four days.**
 
-- **20 emails/day, hard cap**, spread out. A 35-in-two-minutes burst already hurt
-  deliverability once.
+- **20 emails/day is the fresh-install default**, with 7–15 minute sender gaps and
+  recipient-local business windows. The cap is never a reason to burst; overflow moves
+  to the next valid day. A historical 35-in-two-minutes burst hurt deliverability.
 - Plain text, 1:1. No HTML, no tracking pixel.
 - Set up **Google Postmaster Tools** and seed-test into Gmail/Outlook/Yahoo before the
   first real send.
-- Follow up **3, 7, 7**, same thread. Day three is the audit video, the highest-converting
-  asset and the one most likely to be skipped.
+- The legacy manual runbook used **3, 7, 7**. The approval-gated automation uses the
+  current +3-day and +10-day plan, same thread, with a new approval on each due day.
 - **If drafted-but-unsent exceeds 10, stop sourcing and send.**
 
-Full detail: [`SEND-RUNBOOK.md`](SEND-RUNBOOK.md). Live state: [`TODAY.md`](TODAY.md).
+Full detail: [`SEND-RUNBOOK.md`](SEND-RUNBOOK.md). `TODAY.md` is a dated legacy snapshot;
+live state comes from `./automation status`, `./automation health all`, and the dashboard.
 
 ---
 
 ## Data and privacy
 
-This repo holds third-party personal data: roughly 90 email addresses, named individuals,
-and LinkedIn profiles, all collected from public sources.
+Historical tracked files hold third-party personal/business contact data, including email
+addresses, named individuals, and LinkedIn profiles collected from public sources.
 
-- **Keep the repo private.** Do not fork it to a public account.
+- **The remote is currently public.** Do not add new personal data. Prefer changing it to
+  private and cleaning sensitive history before broader sharing.
 - Honour opt-outs immediately and add the domain to `data/suppression.json`.
 - Do not commit API tokens. `.gitignore` covers the known ones; check before you push.
 - Generated `.eml` files are gitignored, since they are rebuildable from `batch*.json`
   and duplicate personal data unnecessarily.
+- Live SQLite state, browser profiles, automation logs, and contact exports stay under
+  `~/Library/Application Support/wrrkhunt/` or another private ignored location.
 - Cold email carries legal obligations that differ by market: CAN-SPAM in the US needs a
   postal address and a working opt-out, and the EU needs a documented legitimate-interest
   basis. **Skip Germany and Austria**, which are effectively opt-in.
@@ -196,4 +234,5 @@ and LinkedIn profiles, all collected from public sources.
 3. Pull the destination URLs. Those are your audit targets.
 4. Run `stack_detect.py`. Keep the ones with many front doors and nothing behind them.
 5. Write one sentence of evidence per prospect. If you cannot, you do not have a prospect.
-6. Send 20 a day, and diarise the day-three follow-up **before** you send the first one.
+6. Release only the configured daily cap, keep the paced local-time schedule, and
+   diarise the day-three follow-up **before** you send the first one.

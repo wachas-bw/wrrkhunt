@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>wrrkhunt approval desk</title>
+  <style>
+    :root { color-scheme: light; --ink:#14201c; --muted:#64706b; --line:#d9dfdc; --paper:#f4f6f5; --accent:#116149; --warn:#9a3412; }
+    * { box-sizing:border-box } body { margin:0; background:var(--paper); color:var(--ink); font:14px/1.45 ui-sans-serif,system-ui,sans-serif }
+    header { padding:24px max(24px,calc((100vw - 1240px)/2)); background:#102b23; color:white; display:flex; justify-content:space-between; align-items:center }
+    h1,h2,h3 { margin:0 0 10px } h1 { font-size:22px } h2 { font-size:17px; margin-top:26px } h3 { font-size:15px }
+    main { max-width:1240px; margin:auto; padding:20px 24px 50px } .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px }
+    .card { background:white; border:1px solid var(--line); border-radius:10px; padding:15px; box-shadow:0 1px 2px #00000008 }
+    .queue { display:grid; gap:14px } .message { display:grid; grid-template-columns:180px 1fr; gap:18px }
+    .meta { color:var(--muted); font-size:12px } .tag { display:inline-block; padding:2px 7px; border-radius:99px; background:#e4eee9; margin:0 4px 4px 0 }
+    textarea,input[type=text],input[type=datetime-local],select { width:100%; border:1px solid var(--line); border-radius:6px; padding:9px; font:inherit; background:#fff } textarea { min-height:180px; resize:vertical }
+    button { border:0; border-radius:6px; padding:8px 11px; background:var(--accent); color:white; cursor:pointer } button.secondary { background:#56645f } button.danger { background:var(--warn) }
+    form.inline { display:inline } .actions { display:flex; flex-wrap:wrap; gap:7px; margin-top:9px } details { margin-top:9px } a { color:var(--accent) }
+    table { width:100%; border-collapse:collapse; background:white } th,td { padding:8px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top } th { color:var(--muted); font-weight:600 } pre { white-space:pre-wrap; overflow-wrap:anywhere; background:#f7f9f8; padding:9px; border-radius:6px }
+    .flash { padding:10px; background:#fff4ce; border:1px solid #e5c65c; border-radius:7px; margin-bottom:10px }
+    .stopped { color:#b91c1c; font-weight:700 } @media(max-width:760px){.message{grid-template-columns:1fr} header{align-items:flex-start;gap:12px;flex-direction:column}}
+  </style>
+</head>
+<body>
+<header>
+  <div><h1>wrrkhunt approval desk</h1><div>Nothing sends without today’s exact approved content hash.</div></div>
+  <div>
+    <form class="inline" method="post" action="/emergency/stop"><input type="hidden" name="csrf" value="{{ csrf }}"><button class="danger">Emergency stop</button></form>
+    <form class="inline" method="post" action="/emergency/clear"><input type="hidden" name="csrf" value="{{ csrf }}"><button class="secondary">Clear stop</button></form>
+  </div>
+</header>
+<main>
+  {% with messages = get_flashed_messages() %}{% for text in messages %}<div class="flash">{{ text }}</div>{% endfor %}{% endwith %}
+  <div class="grid">
+    <section class="card"><h3>LinkedIn safety mode</h3>
+      {% if linkedin_posting_mode == 'official_api' %}
+      <strong>Official Comments API</strong>
+      <div class="meta">Approved comments can be submitted only through LinkedIn's OAuth-backed API. Browser control, stealth, retries after uncertain outcomes, and CAPTCHA handling remain disabled.</div>
+      {% else %}
+      <strong>Manual browser posting</strong>
+      <div class="meta">wrrkhunt drafts and schedules comments, then provides a one-click normal-browser handoff that opens the exact post and copies the immutable approved comment. It never reads the LinkedIn page, types, clicks, or submits for you.</div>
+      {% endif %}
+    </section>
+    {% for name,state in channels.items() %}
+    <section class="card"><h3>{{ name|title }}</h3>
+      <div class="{{ 'stopped' if state['paused'] or state['emergency_stop'] else '' }}">{{ 'PAUSED' if state['paused'] else 'READY' }}{% if state['emergency_stop'] %} · EMERGENCY STOP{% endif %}</div>
+      <div class="meta">Credentials: {{ state['credential_status'] }}<br>{{ state['reason'] or 'No stop reason' }}</div>
+      <div class="actions"><form method="post" action="/channels/{{name}}/pause"><input type="hidden" name="csrf" value="{{csrf}}"><button class="secondary">Pause</button></form><form method="post" action="/channels/{{name}}/resume"><input type="hidden" name="csrf" value="{{csrf}}"><button>Resume</button></form></div>
+    </section>
+    {% endfor %}
+    <section class="card"><h3>Messages</h3>{% for status,n in metrics.items() %}<span class="tag">{{status}} {{n}}</span>{% endfor %}</section>
+    <section class="card"><h3>Email outcomes</h3>
+      <span class="tag">Gmail submitted {{email_tracking['submitted']}}</span>
+      <span class="tag">No bounce observed {{email_tracking['no_bounce_observed']}}</span>
+      <span class="tag">Bounced {{email_tracking['bounced']}}</span>
+      <span class="tag">Human replies {{email_tracking['human_replies']}}</span>
+      <span class="tag">Automated replies {{email_tracking['automated_replies']}}</span>
+      <span class="tag">Opt-outs {{email_tracking['opt_outs']}}</span>
+      <div class="meta">“No bounce observed” is not proof of inbox placement. Opens are not tracked: messages stay plain text, with no tracking pixels or hidden links.</div>
+    </section>
+    <section class="card"><h3>Source budget</h3><strong>${{ '%.2f'|format(source_spend) }}</strong> recorded this month<div class="meta">Apify hard ceiling: ${{ '%.2f'|format(source_budget) }}</div></section>
+    <section class="card"><h3>Campaign state</h3>{% for row in campaign_counts %}<span class="tag">{{row['name']}} · {{row['status']}} {{row['n']}}</span>{% endfor %}</section>
+  </div>
+
+  <h2>Add a LinkedIn post safely</h2>
+  <section class="card">
+    <p>Open LinkedIn in your normal browser, choose a relevant post that is visibly less than 48 hours old, and copy its details here. wrrkhunt will not open or inspect the page.{% if linkedin_posting_mode == 'official_api' %} The permalink must contain its activity/share ID so the approved comment can be addressed through the official API.{% endif %}</p>
+    <form method="post" action="/linkedin/manual-posts">
+      <input type="hidden" name="csrf" value="{{csrf}}">
+      <div class="grid">
+        <label>Post URL<input type="text" name="post_url" required placeholder="https://www.linkedin.com/posts/..."></label>
+        <label>Author profile/company URL<input type="text" name="author_url" required placeholder="https://www.linkedin.com/in/..."></label>
+        <label>Author name<input type="text" name="author_name" required></label>
+        <label>Visible publication date/time<input type="datetime-local" name="published_at" required></label>
+        <label>Role<select name="role" required><option value="influencer">Influencer</option><option value="prospect">Qualified prospect</option></select></label>
+        <label>Market<select name="market" required>{% for market in markets %}<option value="{{market}}">{{market}}</option>{% endfor %}</select></label>
+        <label>Prospect domain (required only for prospect role)<input type="text" name="prospect_domain" placeholder="example.com"></label>
+      </div>
+      <label>Exact visible post text<textarea name="post_text" required></textarea></label>
+      <div class="actions"><button>Add to comment intake</button></div>
+    </form>
+  </section>
+
+  <h2>Today’s review queue</h2>
+  <div class="queue">
+  {% for m in queue %}
+    <article class="card message">
+      <div>
+        <input form="batch-{{m['channel']}}" type="checkbox" name="message_ids" value="{{m['id']}}">
+        <span class="tag">{{m['channel']}}</span><span class="tag">{{m['kind']}}</span><span class="tag">{{m['status']}}</span>
+        <h3>{{m['company'] or m['author_name'] or m['to_address']}}</h3>
+        <div class="meta">#{{m['id']}} · {{m['market'] or 'market unknown'}} · fit {{m['fit_score'] or 'n/a'}}<br>{{m['to_address']}}<br>hash {{m['content_hash'][:12]}}{% if m['approved_hash'] %} · approved {{m['approved_hash'][:12]}}{% endif %}</div>
+        {% if m['post_url'] %}<p><a href="{{m['post_url']}}" target="_blank" rel="noopener noreferrer">Open post in normal browser</a></p>{% endif %}
+        <details><summary>Evidence</summary>{% for e in evidence.get(m['id'],[]) %}<p><a href="{{e['source_url']}}" rel="noreferrer">{{e['kind']}}</a><br>{{e['excerpt']}}<br><span class="meta">{{e['confidence']}} · {{e['detected_at']}}</span></p>{% else %}<p class="meta">Post evidence is hash-bound to this comment.</p>{% endfor %}</details>
+      </div>
+      <div>
+        <form method="post" action="/messages/{{m['id']}}/edit"><input type="hidden" name="csrf" value="{{csrf}}"><input type="text" name="subject" value="{{m['subject']}}" aria-label="Subject"><textarea name="body" aria-label="Body">{{m['body']}}</textarea><div class="actions"><button class="secondary">Save edit</button></div></form>
+        {% if m['channel']=='email' %}<details><summary>Exact delivery preview, including compliance footer</summary>{% if delivery_previews.get(m['id']) %}<pre>{{delivery_previews[m['id']]}}</pre>{% else %}<p class="stopped">Configure the valid business postal address before approval.</p>{% endif %}</details>{% endif %}
+        <div class="actions">
+          {% if m['status']=='pending_approval' %}<form method="post" action="/messages/{{m['id']}}/approve"><input type="hidden" name="csrf" value="{{csrf}}"><button>Approve today</button></form>{% endif %}
+          {% if m['status']=='approved' and m['kind']!='reply' %}<form method="post" action="/messages/{{m['id']}}/release"><input type="hidden" name="csrf" value="{{csrf}}"><button>{% if m['channel']=='linkedin' and linkedin_posting_mode=='manual' %}Schedule manual review{% elif m['channel']=='linkedin' %}Release to official API{% else %}Release{% endif %}</button></form>{% endif %}
+          {% if m['channel']=='linkedin' and m['status']=='scheduled' and linkedin_posting_mode=='manual' %}
+          <textarea id="approved-comment-{{m['id']}}" hidden readonly>{{m['body']}}</textarea>
+          <button type="button" class="secondary linkedin-handoff" data-comment-source="approved-comment-{{m['id']}}" data-post-url="{{m['post_url']}}" data-content-hash="{{m['approved_hash'][:12]}}">Open post + copy approved comment</button>
+          <span id="handoff-status-{{m['id']}}" class="meta" role="status" aria-live="polite"></span>
+          <form method="post" action="/messages/{{m['id']}}/manual-posted" onsubmit="return confirm('Confirm that you personally verified the author and post, pasted this exact approved comment, and clicked Post.');"><input type="hidden" name="csrf" value="{{csrf}}"><button>I posted this exact comment</button></form>
+          {% endif %}
+          {% if m['status'] in ['pending_approval','approved'] %}<form method="post" action="/messages/{{m['id']}}/reject"><input type="hidden" name="csrf" value="{{csrf}}"><input type="hidden" name="note" value="dashboard rejection"><button class="danger">Reject</button></form>{% endif %}
+        </div>
+      </div>
+    </article>
+  {% else %}<div class="card">No messages need review.</div>{% endfor %}
+  </div>
+  {% for channel in ['email','linkedin'] %}<form id="batch-{{channel}}" method="post" action="/batch/{{channel}}/approve" class="actions"><input type="hidden" name="csrf" value="{{csrf}}"><button>Approve selected {{channel}}</button><button formaction="/batch/{{channel}}/release">{% if channel=='linkedin' and linkedin_posting_mode=='manual' %}Schedule selected for manual review{% elif channel=='linkedin' %}Release selected to official API{% else %}Release selected email{% endif %}</button><button class="danger" formaction="/batch/{{channel}}/reject">Reject selected</button></form>{% endfor %}
+
+  <h2>Recent delivery and comment history</h2>
+  <table><thead><tr><th>When</th><th>Channel</th><th>Event</th><th>Meaning</th><th>Target</th></tr></thead><tbody>{% for e in events %}<tr><td>{{e['occurred_at']}}</td><td>{{e['channel']}}</td><td>{{e['event_type']}}</td><td>{% if e['event_type']=='sent' %}Submitted to Gmail; watch for a later bounce{% elif e['event_type']=='bounce' %}Delivery failed and the address was suppressed{% elif e['event_type']=='human_reply' %}Recipient replied; follow-ups were cancelled{% elif e['event_type']=='automated_reply' %}Automated response; not counted as engagement{% elif e['event_type']=='opt_out' %}Recipient opted out; address and domain were suppressed{% elif e['event_type']=='posted' %}Comment submission recorded{% else %}Audited channel event{% endif %}</td><td>{{e['to_address'] or e['subject']}}</td></tr>{% else %}<tr><td colspan="5">No delivery events yet.</td></tr>{% endfor %}</tbody></table>
+
+  <h2>Recent source runs</h2>
+  <table><thead><tr><th>When</th><th>Source</th><th>Market / pool</th><th>Status</th><th>Candidates</th><th>Note</th></tr></thead><tbody>{% for r in source_runs %}<tr><td>{{r['started_at']}}</td><td>{{r['source']}}</td><td>{{r['market']}} / {{r['pool']}}</td><td>{{r['status']}}</td><td>{{r['candidates_count']}}</td><td>{{r['error'] or r['budget_note']}}</td></tr>{% endfor %}</tbody></table>
+</main>
+<script>
+  document.addEventListener("click", async (event) => {
+    const button = event.target.closest(".linkedin-handoff");
+    if (!button) return;
+
+    const source = document.getElementById(button.dataset.commentSource);
+    const messageId = button.dataset.commentSource.replace("approved-comment-", "");
+    const status = document.getElementById(`handoff-status-${messageId}`);
+    if (!source || !button.dataset.postUrl) {
+      status.textContent = "Handoff unavailable; refresh the dashboard.";
+      return;
+    }
+
+    // This user-triggered handoff opens a normal tab. It never obtains a handle to,
+    // reads, or modifies LinkedIn's page.
+    window.open(button.dataset.postUrl, "_blank", "noopener,noreferrer");
+
+    let copied = false;
+    try {
+      await navigator.clipboard.writeText(source.value);
+      copied = true;
+    } catch (_) {
+      const fallback = document.createElement("textarea");
+      fallback.value = source.value;
+      fallback.setAttribute("readonly", "");
+      fallback.style.position = "fixed";
+      fallback.style.opacity = "0";
+      document.body.appendChild(fallback);
+      fallback.select();
+      copied = document.execCommand("copy");
+      fallback.remove();
+    }
+
+    status.textContent = copied
+      ? `Approved ${button.dataset.contentHash} copied. Verify the author and post, paste it, then click Post yourself.`
+      : "The post opened, but clipboard access was blocked. Copy the displayed approved comment manually.";
+  });
+</script>
+</body></html>

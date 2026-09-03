@@ -1,7 +1,8 @@
 # TODAY
 
-Live state. Update at the end of every session, including sessions where nothing was
-sent. Especially those.
+> **Historical snapshot from 2026-08-11.** This is not live automation state. Use
+> `./automation status`, `./automation health all`, and the SQLite-backed dashboard for
+> current facts. Keep this file only as campaign history.
 
 ## 2026-08-11 (batch 2 built)
 

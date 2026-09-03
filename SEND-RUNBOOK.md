@@ -1,138 +1,205 @@
-# Send runbook
+# Email send runbook
 
-This file exists because of one specific failure. `clienthunt/TODAY.md` records 12 warm,
-fully-drafted leads that went cold unsent over four days. Sourcing and drafting were
-automated; sending stayed a vague intention. **The bottleneck is never finding people.
-It is sending.**
+This is the current operator procedure for email delivery. The automation and SQLite
+state are authoritative; old batch files and `TODAY.md` are historical records.
 
-So: sending is a scheduled task with a number attached, not a thing you get to when the
-drafts look ready.
+## 1. What sending means in this system
 
----
+An eligible contact is not permission to email. A draft is not permission to email. An
+approval from another day is not permission to email. SMTP may act only after the exact
+final delivery content hash has been approved today and explicitly released from the
+loopback dashboard.
 
-## Before the first send, once
+The final hash includes the subject, body, recipient, sender identity, disclosure,
+business postal address, opt-out text, and evidence references. Editing any of these
+invalidates approval.
 
-- [ ] **Google Postmaster Tools** for `wrrk.ai` (https://postmaster.google.com), verified
-      by DNS TXT. This is the only real signal for how Gmail sees the domain. SES metrics
-      cannot tell you this.
-- [ ] **Seed test.** Send 3 of the batch-1 drafts, unmodified, to a Gmail, an Outlook and
-      a Yahoo address you control. Confirm **Primary inbox, not Promotions, not Spam.**
-      If any land in spam, stop and fix before touching a real prospect.
-- [ ] **Confirm the signature.** Plain text, no image, no tracking link. Name, one line on
-      role, and the wrrk.ai domain as plain text.
+## 2. One-time setup
 
-### Why this domain needs the care
+Create the environment and initialize the private database:
 
-`wachas@wrrk.ai` is Google Workspace, verified:
-
-```
-MX      smtp.google.com
-SPF     v=spf1 include:_spf.google.com ~all
-DKIM    google._domainkey present
-DMARC   v=DMARC1; p=none; adkim=s; aspf=r
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+./automation init
 ```
 
-That is a healthy, correctly-configured mailbox, and it is a **different sending lane**
-from the one that got into trouble. The spam problem in `new/docs/WRRK_AI_WARMUP_RUNBOOK.md`
-was `noreply@wrrk.ai` sending bulk through **SES**, different IPs entirely. Workspace 1:1
-is fine to start now.
+Configure Gmail with a valid business postal address:
 
-But Gmail's reputation signal is partly **domain-level**, so the SES history is not
-irrelevant to us. Hence the caps below.
+```bash
+./automation setup gmail --postal-address "VALID BUSINESS POSTAL ADDRESS"
+./automation health email
+```
 
-Also worth knowing: SPF currently authorises Google only. Any future SES send from
-`wrrk.ai` would fail SPF alignment until that record is updated.
+The command asks for the 16-character Gmail app password without echoing it and stores
+it in macOS Keychain. `GMAIL_APP_PASSWORD` is a temporary fallback only. Never put the
+password in Git, a prompt, a log, or a campaign file.
 
----
+Before production, send controlled test messages to inboxes you own at Gmail, Outlook,
+and Yahoo. Confirm authentication, formatting, replies, bounces, opt-out handling, and
+the expected inbox placement manually. Setup alone never unpauses, approves, releases,
+or sends campaign messages.
 
-## The daily loop
+## 3. Start-of-day preflight
 
-**20 emails per day. Hard cap.** Spread across the working day, never in a burst.
-`jobhunt` learned this the expensive way: 35 sends in 2 minutes measurably hurt
-deliverability.
+```bash
+git status --short
+./automation status
+./automation health email
+./automation inbox
+./automation worker --channel email --dry-run
+```
 
-1. Open `outreach/batch1.md`.
-2. Take the next 20 that have not been sent.
-3. For each: paste subject and body into Gmail, send, mark the row in `data/tracker.csv`.
-4. Stop at 20 even if you have momentum.
+Resolve any human reply, opt-out, bounce stop, authentication failure, quota failure, or
+uncertain delivery before preparing more mail. Do not clear a stop by editing SQLite.
 
-**Rules that are not negotiable:**
+Email qualification requires fit score at least 75, usable first-party evidence, an
+email visibly published by the business, MX for the exact email domain, enabled regional
+policy, no suppression, one initial recipient per company, and no initial email to the
+same registrable domain inside 90 days.
 
-- Plain text. No HTML, no tracking pixel, no image signature.
-- **No links in email #1.** The Loom goes in follow-up #2, or immediately after a reply.
-- One prospect, one thread. Never CC, never BCC a second prospect.
-- If a draft says something you cannot personally defend on a call, delete the draft.
-  Do not soften it.
+UK contacts require visible corporate incorporation evidence and cannot use freemail.
+US delivery is blocked until the business postal address is configured.
 
-### The anti-stall rule
+## 4. Prepare, inspect, and approve
 
-**If drafted-but-unsent exceeds 10, stop sourcing entirely and send.**
+```bash
+./automation prepare --email-limit 20 --comment-limit 0
+./automation serve
+```
 
-More prospects is never the answer when the queue is already full. Update `TODAY.md`
-with sent-count and next action at the end of every session, even a session where
-nothing was sent. Especially then.
+Review at `http://127.0.0.1:8765`. For every email, inspect:
 
----
+- company, market, pool, fit score, and confidence;
+- source URL and discovery excerpt;
+- website-audit URLs and evidence excerpts;
+- publication URL for the exact recipient address;
+- subject, body, approved product claim, and evidence IDs;
+- final delivery preview, including compliance footer and opt-out;
+- previous domain activity and suppression state.
 
-## Follow-up cadence: 3-7-7
+Reject the item if any claim cannot be defended from its displayed evidence. Edit only
+when needed; an edit returns the item to `pending_approval` and requires a new approval.
 
-Reply-to-your-own-thread, never a fresh email.
+## 5. Current initial-email rules
 
-| Day | What | Contains a link? |
-|-----|------|------------------|
-| 0 | The batch-1 email | No |
-| +3 | The audit Loom. 90 seconds, their site on screen, the specific gap. No pitch. | Yes, the Loom |
-| +10 | One line: "Should I close this out?" | No |
-| +17 | Nothing. Stop. | |
+The `founder_booking_note_v4` validator requires:
 
-The day-3 Loom is the highest-converting asset in the whole system and the one most
-likely to get skipped. Record it in one take. Two minutes of your time; do not polish it.
+- a concrete, non-promotional subject of three to five words;
+- the safe greeting `Hi there,`;
+- 60 to 80 pitch words in two or three short paragraphs;
+- one specific public evidence detail;
+- one restrained 15-minute tailored-demo question;
+- the exact configured booking URL once and no other URL;
+- `Wachas` and `Founding engineer, wrrk.ai` on separate sender lines;
+- no guessed name, unsupported claim, banned punctuation, wrong-audience inbox, HTML,
+  tracking pixel, image signature, CC, BCC, or attachment.
 
----
+Allowed and forbidden product claims are defined in `prospecting/config.py`. Do not sell
+features merely because they appeared in an old campaign document. In particular, do
+not claim an AI meeting notetaker, six-platform lead discovery, Ziwo voice, a public REST
+API, Meta/Google Ads orchestration, or a generic `$400/mo` replacement figure.
 
-## The WhatsApp response-time probe
+The detector's stack-cost estimate is directional and must never be quoted as the
+prospect's actual spend. Name the detected tool and source page instead.
 
-Optional, manual, **top 20 prospects only**, never automated.
+## 6. Release and pacing
 
-Send one genuine buying question to their listed WhatsApp, as a real prospective
-customer would. Note the timestamp. Note when the reply comes, if it comes.
+Release reviewed items in the dashboard. The fresh-install cap is 20 email attempts per
+approved day. A failure or retry cannot bypass the persisted counter. The scheduler uses
+random 7 to 15 minute gaps and recipient-local weekday business hours. Overflow moves to
+the next valid window; it is never released as a catch-up burst after a late wake-up.
 
-Then say so plainly in the email:
+Run one short cycle manually only when needed:
 
-> I messaged the WhatsApp on Sunday at 9pm asking about a 3BHK. The reply came Tuesday
-> at 11am.
+```bash
+./automation worker --channel email
+```
 
-This is the single most powerful line available, because it is not an argument, it is
-something that happened. Rules: one message, a real question, never a follow-up nag,
-and **always disclose it in the email**. If you would not be comfortable with them
-knowing you timed it, do not do it.
+Do not use a second sender, Gmail UI schedule, connector action, or another process for
+the same IDs unless ownership is explicitly reconciled. A successful
+`gmail_scheduled` event means Gmail owns that item and SMTP excludes it.
 
----
+An outbound attempt is transactionally marked before SMTP. If the process loses certainty
+after submission, the item is blocked instead of retried blindly.
 
-## What must never appear in an email
+## 7. Follow-ups and human replies
 
-Named in the plan as binding, restated here because this is the file you will actually
-have open. These are verified half-built in the `new/` repo:
+The current cadence is:
 
-| Never claim | Why |
-|---|---|
-| AI meeting notetaker | `src/lib/feature-flags/notetaker.ts` disables it in production. It is feature #02 on the landing page. |
-| Lead discovery across Reddit, X, Instagram, Facebook, Google, LinkedIn | `conversation-platforms.ts` defaults to **Reddit only**. |
-| Ziwo voice | Code-ready, blocked on SIP credentials. |
-| A public REST API or developer console | Does not exist. Webhook-in and http-out only. |
-| Meta or Google Ads orchestration | Absent entirely. |
-| "Replaces $400/mo" | wrrk's own `roi-config.ts` figure, built by summing 17 tools' list prices. Quote the prospect's **detected** stack instead. It is smaller, true, and hits harder. |
+| Day | Action | Approval |
+|---:|---|---|
+| 0 | Initial evidence-led email with the approved booking URL | Same-day approval and release |
+| +3 | Evidence-grounded follow-up in the same thread, no link | New approval on the due day |
+| +10 | Final concise follow-up in the same thread, no link | New approval on the due day |
+| after +10 | Stop | No further automated touch |
 
-Sell WhatsApp, unified inbox, CRM, workflows, email campaigns, people/HR. Those carry
-live customer traffic.
+`./automation prepare` creates only follow-ups that are due. Any human reply cancels
+pending follow-ups. Codex may draft a response for review, but database policy prohibits
+automatic release of reply-kind messages.
 
----
+Match the reply's tone and length, answer the actual question, and do not force the
+booking link into a human conversation.
 
-## Tracking
+## 8. Bounces, opt-outs, and stop conditions
 
-`data/tracker.csv`, one row per prospect, segmented by **market x pool x angle** so reply
-rate is measurable per cell. Batch 2 doubles down on whichever cell actually replied
-rather than on whichever cell felt good to write.
+Poll IMAP every 15 minutes through launchd or run:
 
-Columns: `company, domain, market, pool, angle, to, sent_date, opened, replied, positive,
-call_booked, followup_stage, notes`
+```bash
+./automation inbox
+```
+
+The system records human replies, automated replies, delivery failures, and opt-outs.
+An opt-out immediately suppresses the email and registrable domain. Two bounces in the
+rolling last 20 sent messages pause email. Gmail authentication/quota failures and
+uncertain SMTP results also pause the channel.
+
+Use these controls rather than altering records:
+
+```bash
+./automation pause email
+./automation status
+./automation health email
+./automation resume email
+```
+
+The dashboard emergency stop has a separate explicit clear action. Clearing it leaves
+channels paused until they are individually resumed.
+
+## 9. What can and cannot be measured
+
+The canonical record can report:
+
+- approved, scheduled, attempted, sent, and failed counts;
+- SMTP/Gmail external IDs and timestamps when available;
+- bounces and their messages;
+- human and automated replies;
+- opt-outs and resulting suppressions;
+- follow-up stage and cancellation;
+- positive replies and calls booked when classified by a human.
+
+The system deliberately has no tracking pixel, HTML beacon, or hidden link redirect. It
+therefore cannot report opens. A message without a bounce is not proof of inbox placement
+or reading. Do not put `opened` in a team report unless a recipient explicitly confirms
+it through a reply or another legitimate event.
+
+## 10. End-of-day report
+
+Use database facts, not estimates. Report:
+
+```text
+Prospecting update: [N] candidates discovered, [N] audited, [N] qualified, [N] emails
+sent from wachas@wrrk.ai, [N] replies, [N] positive replies, [N] bounces, [N] opt-outs,
+and [N] calls booked. [N] approved items remain scheduled in recipient-local windows.
+Email channel: [healthy/paused, reason].
+```
+
+Do not report queued or drafted messages as sent.
+
+## 11. Compliance note
+
+Every delivered message contains accurate sender identity, the configured business
+postal address, a commercial-message disclosure, a reply-based opt-out, and a
+`List-Unsubscribe` mailto header. These controls support responsible operation but are
+not legal advice. Recheck current requirements for each market before enabling a new
+campaign. See the FTC CAN-SPAM and ICO B2B guidance linked from `AUTOMATION.md`.
